@@ -1,7 +1,15 @@
-import "./App.css";
+import HeroHeading from "./components/HeroHeading";
+import SearchContainer from "./components/SearchContainer";
+
+import "./style/base.scss";
 
 function App() {
-	return <div className="App"></div>;
+	return (
+		<div>
+			<HeroHeading />
+			<SearchContainer />
+		</div>
+	);
 }
 
 export default App;
