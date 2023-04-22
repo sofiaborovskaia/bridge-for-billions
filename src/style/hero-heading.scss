@@ -1,5 +1,3 @@
-$page-padding: 50px;
-
 .hero-heading {
 	position: relative;
 	padding: $page-padding;
@@ -43,7 +41,7 @@ $page-padding: 50px;
 	}
 
 	&__favourites-btn {
-		position: absolute;
+		position: fixed;
 		right: $page-padding;
 
 		border: 1px solid rgb(12, 184, 184);
