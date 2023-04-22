@@ -1,0 +1,55 @@
+$page-padding: 50px;
+
+.hero-heading {
+	position: relative;
+	padding: $page-padding;
+	background: linear-gradient(113.65deg, #baff91 3.96%, #fff6a4 64.43%), #defb9a;
+
+	display: grid;
+	place-items: center;
+
+	&__title-wrapper {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	&__title {
+		font-size: 2rem;
+	}
+
+	&__version-tag {
+		align-self: flex-start;
+		border: 1px solid black;
+		border-radius: 8px;
+		padding: 2px 12px;
+		background: #cccccc8c;
+	}
+
+	&__subtitle {
+		display: flex;
+		align-items: end;
+		gap: 20px;
+	}
+
+	&__subtitle-item {
+		display: flex;
+		gap: 20px;
+
+		&:not(:first-child)::before {
+			content: "✦";
+			font-size: 1em;
+		}
+	}
+
+	&__favourites-btn {
+		position: absolute;
+		right: $page-padding;
+
+		border: 1px solid rgb(12, 184, 184);
+		border-radius: 8px;
+		padding: 2px 12px;
+		background: #ffffffeb;
+		cursor: pointer;
+	}
+}
