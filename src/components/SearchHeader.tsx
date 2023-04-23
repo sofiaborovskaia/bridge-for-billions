@@ -1,22 +1,39 @@
-import Select from "react-select";
-
-const options = [
-	{ value: "artist", label: "Artist" },
-	{ value: "album", label: "Album" },
-	{ value: "track", label: "Track" },
-];
+import { useState } from "react";
+import {
+	TextField,
+	FormControl,
+	InputLabel,
+	Select,
+	MenuItem,
+	SelectChangeEvent,
+} from "@mui/material";
 
 const SearchHeader = () => {
+	const [selectLabel, setSelectLabel] = useState("");
+
+	const handleSelectChange = (event: SelectChangeEvent) => {
+		setSelectLabel(event.target.value as string);
+	};
+
 	return (
 		<div className="search-header">
-			<input type="search"></input>
-			<Select
-				className="search-header__select"
-				name="search-options"
-				options={options}
-				isMulti
-			/>
-			<button type="submit">Go!</button>
+			<FormControl className="search-header__select" fullWidth>
+				<InputLabel id="select-label">Search by</InputLabel>
+				<Select
+					labelId="select-label"
+					id="select"
+					value={selectLabel}
+					label="Search by"
+					onChange={handleSelectChange}
+				>
+					<MenuItem value="artist">Artist</MenuItem>
+					<MenuItem value="album">Album</MenuItem>
+					<MenuItem value="track">Track</MenuItem>
+					<MenuItem value="track">All</MenuItem>
+				</Select>
+			</FormControl>
+			<TextField className="search-header__search-input" />
+			<button>Search!</button>
 		</div>
 	);
 };
