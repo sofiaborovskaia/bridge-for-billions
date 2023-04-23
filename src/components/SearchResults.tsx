@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import { nanoid } from "nanoid";
 import { ResultInterface } from "../app/interfaces";
 
 import ItemCard from "./ItemCard";
 
 const token = "BKqXciLJNXcEzgKNRZXmnQxdIDFjqqTRxYiUQOyZ";
 const url = "https://api.discogs.com/";
-
-const infoIsClicked = true;
 
 const SearchResults = () => {
 	const [results, setResults] = useState<ResultInterface[]>([]);
@@ -17,33 +14,53 @@ const SearchResults = () => {
 	);
 
 	useEffect(() => {
-		console.log(`${url}${queryString}`);
 		const fetchResults = async () => {
 			const request = await fetch(`${url}${queryString}`);
 			const response = await request.json();
 			if (!request.ok) {
 				// Falsy response
 			} else {
-				setResults(response.results);
-				console.log(response.results);
+				setResults(
+					response.results.map((result: ResultInterface) => {
+						return { ...result, isClicked: false };
+					}),
+				);
 			}
 		};
 		fetchResults();
-	}, []);
+	}, [queryString]);
+
+	const openInfo = (id: number) => {
+		setResults((oldResults) => {
+			return oldResults.map((result) => {
+				return result.id === id
+					? { ...result, isClicked: result.isClicked ? false : true }
+					: { ...result, isClicked: false };
+			});
+		});
+	};
 
 	const resultsItem = results.map((result) => {
 		return (
-			<li key={nanoid()} className="search-results__item">
-				<img
-					src={result.thumb}
-					alt={result.title}
-					className="search-results__thumb"
-				/>
-				<span className="search-results__title">{result.title}</span>
-				<span className="search-results__type">{result.type}</span>
-				<button>Add to favs</button>
-				<button>More info</button>
-				{infoIsClicked && (
+			<li key={result.id} className="search-results__item">
+				<div className="search-results__inline-result">
+					<img
+						src={result.thumb}
+						alt={result.title}
+						className="search-results__thumb"
+					/>
+					<span className="search-results__title">{result.title}</span>
+					<span className="search-results__type">{result.type}</span>
+					<button className="favourites-button">Add to favs</button>
+					<button
+						className="toggle-info-button"
+						onClick={() => openInfo(result.id)}
+					>
+						More info
+					</button>
+				</div>
+				{/* clicked.key of the item */}
+				{result.isClicked && (
 					<ItemCard
 						title={result.title}
 						type={result.type}
