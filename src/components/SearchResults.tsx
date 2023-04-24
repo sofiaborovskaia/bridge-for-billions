@@ -42,8 +42,14 @@ const SearchResults = () => {
 
 	const resultsItem = results.map((result) => {
 		return (
-			<li key={result.id} className="search-results__item">
-				<div className="search-results__inline-result">
+			<li key={result.id} className="search-results__result">
+				<div
+					className={
+						result.isClicked
+							? "search-results__inline-result active"
+							: "search-results__inline-result"
+					}
+				>
 					<img
 						src={result.thumb}
 						alt={result.title}
@@ -51,15 +57,15 @@ const SearchResults = () => {
 					/>
 					<span className="search-results__title">{result.title}</span>
 					<span className="search-results__type">{result.type}</span>
-					<button className="favourites-button">Add to favs</button>
+
+					<button className="search-results__add-favs-button">Add to ❤️</button>
 					<button
-						className="toggle-info-button"
+						className="search-results__toggle-info-button"
 						onClick={() => openInfo(result.id)}
 					>
 						More info
 					</button>
 				</div>
-				{/* clicked.key of the item */}
 				{result.isClicked && (
 					<ItemCard
 						title={result.title}
@@ -67,6 +73,7 @@ const SearchResults = () => {
 						image={result.cover_image}
 						year={result.year}
 						format={result.format}
+						className="visible"
 					/>
 				)}
 			</li>

@@ -1,5 +1,31 @@
-// Preset
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Paytone+One&display=swap");
 
+// Valiables
+$page-padding: #{"min(50px, 5vw)"};
+
+$primary-font: "Montserrat";
+$accent-font: "Paytone One";
+
+// Breakpoints
+$mobile-max-width: 550px;
+$desktop-min-width: 551px;
+
+// Colors
+$accent-1: #fff6a4;
+$accent-2: #baff91;
+$primary: rgb(229, 181, 227);
+$light: #f7f7f7;
+
+// Mixins
+@mixin transition {
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+// Preset
 * {
 	box-sizing: border-box;
 	text-rendering: optimizeLegibility;
@@ -18,6 +44,8 @@ html {
 
 body {
 	margin: 0;
+	background-color: $light;
+	font-family: $primary-font;
 }
 
 ul {
@@ -34,7 +62,15 @@ button {
 	cursor: pointer;
 }
 
-// Valiables
-$page-padding: 50px;
+// Custom classes
+.mobile-hide {
+	@media (max-width: $mobile-max-width) {
+		display: none !important;
+	}
+}
 
-$pink: rgb(255, 228, 232);
+.desktop-hide {
+	@media (min-width: $desktop-min-width) {
+		display: none !important;
+	}
+}

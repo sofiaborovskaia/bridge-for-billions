@@ -33,7 +33,7 @@ const SearchHeader = () => {
 				</Select>
 			</FormControl>
 			<TextField className="search-header__search-input" />
-			<button>Search!</button>
+			<button className="search-header__search-button">Search!</button>
 		</div>
 	);
 };
