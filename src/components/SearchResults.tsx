@@ -73,7 +73,6 @@ const SearchResults = () => {
 						image={result.cover_image}
 						year={result.year}
 						format={result.format}
-						className="visible"
 					/>
 				)}
 			</li>
