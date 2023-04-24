@@ -1,7 +1,7 @@
 .hero-heading {
 	position: relative;
-	padding: $page-padding;
-	background: linear-gradient(113.65deg, #baff91 3.96%, #fff6a4 64.43%), #defb9a;
+	padding: 40px $page-padding;
+	background: linear-gradient(113.65deg, $primary 3.96%, $accent-1 64.43%);
 
 	display: grid;
 	place-items: center;
@@ -12,16 +12,25 @@
 		gap: 10px;
 	}
 
+	&__welcome-text {
+		@media (max-width: $mobile-max-width) {
+			display: none;
+		}
+	}
+
 	&__title {
-		font-size: 2rem;
+		font-size: #{"clamp(1.5rem, 3vw + 1rem, 2.7rem)"};
+		font-family: $accent-font;
+		letter-spacing: 1px;
 	}
 
 	&__version-tag {
 		align-self: flex-start;
-		border: 1px solid black;
-		border-radius: 8px;
 		padding: 2px 12px;
-		background: #cccccc8c;
+		font-size: 0.9rem;
+		color: $accent-1;
+		border-radius: 9px;
+		background: black;
 	}
 
 	&__subtitle {
@@ -40,18 +49,21 @@
 		}
 	}
 
-	&__favourites-btn {
+	&__show-favs-button {
 		position: fixed;
 		right: $page-padding;
+		@media (max-width: $mobile-max-width) {
+			bottom: 30px;
+		}
 
 		border-radius: 8px;
 		padding: 2px 12px;
-		background: rgba(255, 255, 255, 1);
+		background: $light;
 		cursor: pointer;
-		z-index: 1;
+		z-index: 2;
 
-		-webkit-box-shadow: 0px 0px 20px 13px rgba(255, 255, 255, 1);
-		-moz-box-shadow: 0px 0px 20px 13px rgba(255, 255, 255, 1);
-		box-shadow: 0px 0px 20px 13px rgba(255, 255, 255, 1);
+		-webkit-box-shadow: 0px 0px 20px 13px $primary;
+		-moz-box-shadow: 0px 0px 20px 13px $primary;
+		box-shadow: 0px 0px 20px 13px $primary;
 	}
 }
