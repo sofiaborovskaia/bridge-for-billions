@@ -52,6 +52,7 @@
 	&__show-favs-button {
 		position: fixed;
 		right: $page-padding;
+
 		@media (max-width: $mobile-max-width) {
 			bottom: 30px;
 		}
