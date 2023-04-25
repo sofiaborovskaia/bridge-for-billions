@@ -1,5 +1,6 @@
 .search-container {
 	padding-inline: $page-padding;
+	padding-bottom: 50px;
 }
 
 .search-header {
@@ -110,4 +111,18 @@
 			text-align: end;
 		}
 	}
+}
+
+.pagination {
+	padding: 10px $page-padding;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+.footer {
+	padding: 10px $page-padding;
+	background: $primary;
+	text-align: center;
+	font-size: 0.7rem;
 }

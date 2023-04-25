@@ -8,6 +8,7 @@ import {
 	selectSearchState,
 } from "../features/search/resultsSlice";
 import ItemCard from "./ItemCard";
+import Pagination from "./Pagination";
 
 const SearchResults: React.FC<SearchResultsPropsInterface> = ({
 	results,
@@ -66,8 +67,11 @@ const SearchResults: React.FC<SearchResultsPropsInterface> = ({
 
 	return (
 		<>
-			{results.length > 0 && (
-				<ul className="search-results">{SearchResults}</ul>
+			{results && results.length > 0 && (
+				<>
+					<ul className="search-results">{SearchResults}</ul>
+					<Pagination />
+				</>
 			)}
 			{error && <p>Something went wrong :( </p>}
 		</>
