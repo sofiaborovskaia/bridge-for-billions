@@ -1,7 +1,7 @@
 const Footer = () => {
 	return (
 		<footer className="footer">
-			Created by Sofia Borovskaia | Powered by Discogs
+			Created by Sofia Borovskaia for Bridge for Billions | Powered by Discogs
 		</footer>
 	);
 };
