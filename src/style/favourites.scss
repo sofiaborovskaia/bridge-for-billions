@@ -1,0 +1,63 @@
+.favourites {
+	position: fixed;
+	display: grid;
+	place-items: center;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 3;
+
+	&__container {
+		height: 300px;
+		width: 300px;
+		padding: 20px;
+		background: $light;
+		box-shadow: 1px 1px 120px 10px $primary;
+		position: relative;
+	}
+
+	&__close-button {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+	}
+
+	&__title {
+		font-size: 1.1rem;
+		font-weight: 900;
+		text-align: center;
+		margin-block: 20px;
+	}
+
+	&__list {
+		overflow-y: auto;
+		height: 200px;
+	}
+
+	&__list-item {
+		padding: 10px 5px;
+		counter-increment: num;
+
+		&:nth-child(even) {
+			background-color: $accent-1;
+		}
+
+		&::before {
+			content: counter(num) ". ";
+		}
+	}
+}
+
+// ol {
+// 	list-style: none;
+// 	counter-reset: my-awesome-counter;
+// }
+// ol li {
+// 	counter-increment: my-awesome-counter;
+// }
+// ol li::before {
+// 	content: counter(my-awesome-counter) ". ";
+// 	color: red;
+// 	font-weight: bold;
+// }
