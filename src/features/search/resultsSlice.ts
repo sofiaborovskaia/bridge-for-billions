@@ -10,6 +10,7 @@ export const searchReducer = createSlice({
 		track: false,
 		album: false,
 		results: [],
+		pagination: { page: 1, pages: 1 },
 	},
 	reducers: {
 		updateQuery: (state, action) => {
@@ -24,6 +25,15 @@ export const searchReducer = createSlice({
 		updateAlbum: (state, action) => {
 			state.album = action.payload;
 		},
+		updatePagination: (state, action) => {
+			state.pagination = action.payload;
+		},
+		nextPage: (state) => {
+			state.pagination.page += 1;
+		},
+		prevPage: (state) => {
+			state.pagination.page -= 1;
+		},
 		updateResults: (state, action) => {
 			state.results = action.payload;
 		},
@@ -35,6 +45,9 @@ export const {
 	updateTrack,
 	updateAlbum,
 	updateResults,
+	updatePagination,
+	nextPage,
+	prevPage,
 } = searchReducer.actions;
 
 // Selectors

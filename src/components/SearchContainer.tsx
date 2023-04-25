@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	selectSearchState,
 	updateResults,
+	updatePagination,
 } from "../features/search/resultsSlice";
 import { ResultInterface } from "../app/interfaces";
 
@@ -11,7 +12,6 @@ import SearchHeader from "./SearchHeader";
 
 const token = "BKqXciLJNXcEzgKNRZXmnQxdIDFjqqTRxYiUQOyZ";
 const url = "https://api.discogs.com/database/search?";
-const page = "1";
 
 const SearchContainer = () => {
 	const dispatch = useDispatch();
@@ -23,6 +23,7 @@ const SearchContainer = () => {
 	const artist = searchState.artist;
 	const album = searchState.album;
 	const track = searchState.track;
+	const page = searchState.pagination.page;
 
 	let artistString = `&artist=${query}`;
 	let albumString = `&format=album&title=${query}`;
@@ -50,7 +51,13 @@ const SearchContainer = () => {
 				const newResults = response.results.map((result: ResultInterface) => {
 					return { ...result, isClicked: false };
 				});
+				const newPagination = {
+					page: response.pagination.page,
+					pages: response.pagination.pages,
+				};
+
 				dispatch(updateResults(newResults));
+				dispatch(updatePagination(newPagination));
 			}
 		})();
 	}, [queryString, dispatch]);
