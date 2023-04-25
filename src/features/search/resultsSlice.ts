@@ -29,10 +29,6 @@ export const searchReducer = createSlice({
 		},
 	},
 });
-
-// Selectors
-export const selectSearchState = (state: RootState) => state.search; //todo: change search to quiery?
-
 export const {
 	updateQuery,
 	updateArtist,
@@ -40,5 +36,8 @@ export const {
 	updateAlbum,
 	updateResults,
 } = searchReducer.actions;
+
+// Selectors
+export const selectSearchState = (state: RootState) => state.search;
 
 export default searchReducer.reducer;
