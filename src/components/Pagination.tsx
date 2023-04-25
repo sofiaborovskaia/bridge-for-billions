@@ -12,14 +12,6 @@ const Pagination = () => {
 	const dispatch = useDispatch();
 	const searchState = useSelector(selectSearchState);
 
-	// + Create a state for pages
-
-	// + Update it new search: page: 1, pages: result.pages -- Dispatch from search container
-	// + Update only the current one on next/prev click -- Dispatch from pagination
-
-	// + Print the correct values - Use selector in pagination
-	// Trigger new call on change
-
 	let currentPage = searchState.pagination.page;
 	let totalPages = searchState.pagination.pages;
 
