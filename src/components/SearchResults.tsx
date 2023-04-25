@@ -1,46 +1,21 @@
-import { useEffect, useState } from "react";
-import { ResultInterface } from "../app/interfaces";
-
+import { SearchResultsPropsInterface } from "../app/interfaces";
 import ItemCard from "./ItemCard";
 
-const token = "BKqXciLJNXcEzgKNRZXmnQxdIDFjqqTRxYiUQOyZ";
-const url = "https://api.discogs.com/";
-
-const SearchResults = () => {
-	const [results, setResults] = useState<ResultInterface[]>([]);
-	// Make query string come from an array or an object in the future
-	const [queryString, setQueryString] = useState(
-		`database/search?q=Billie%20Eilish&token=${token}`,
-	);
-
-	useEffect(() => {
-		const fetchResults = async () => {
-			const request = await fetch(`${url}${queryString}`);
-			const response = await request.json();
-			if (!request.ok) {
-				// Falsy response
-			} else {
-				setResults(
-					response.results.map((result: ResultInterface) => {
-						return { ...result, isClicked: false };
-					}),
-				);
-			}
-		};
-		fetchResults();
-	}, [queryString]);
-
-	const openInfo = (id: number) => {
-		setResults((oldResults) => {
-			return oldResults.map((result) => {
-				return result.id === id
-					? { ...result, isClicked: result.isClicked ? false : true }
-					: { ...result, isClicked: false };
-			});
-		});
+const SearchResults: React.FC<SearchResultsPropsInterface> = ({
+	results,
+	error,
+}) => {
+	const openInfoHandler = (id: number) => {
+		// setResults((oldResults) => {
+		// 	return oldResults.map((result) => {
+		// 		return result.id === id
+		// 			? { ...result, isClicked: result.isClicked ? false : true }
+		// 			: { ...result, isClicked: false };
+		// 	});
+		// });
 	};
 
-	const resultsItem = results.map((result) => {
+	const SearchResults = results.map((result) => {
 		return (
 			<li key={result.id} className="search-results__result">
 				<div
@@ -61,7 +36,7 @@ const SearchResults = () => {
 					<button className="search-results__add-favs-button">Add to ❤️</button>
 					<button
 						className="search-results__toggle-info-button"
-						onClick={() => openInfo(result.id)}
+						onClick={() => openInfoHandler(result.id)}
 					>
 						More info
 					</button>
@@ -79,7 +54,14 @@ const SearchResults = () => {
 		);
 	});
 
-	return <ul className="search-results">{resultsItem}</ul>;
+	return (
+		<>
+			{results.length > 0 && (
+				<ul className="search-results">{SearchResults}</ul>
+			)}
+			{error && <p>Something went wrong :( </p>}
+		</>
+	);
 };
 
 export default SearchResults;

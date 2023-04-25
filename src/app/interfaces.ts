@@ -16,3 +16,8 @@ export interface ItemCardInterface {
 	year: string;
 	format: string;
 }
+
+export interface SearchResultsPropsInterface {
+	results: ResultInterface[];
+	error: boolean;
+}
