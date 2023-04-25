@@ -1,18 +1,28 @@
-import { SearchResultsPropsInterface } from "../app/interfaces";
+import { useSelector, useDispatch } from "react-redux";
+import {
+	SearchResultsPropsInterface,
+	ResultInterface,
+} from "../app/interfaces";
+import {
+	updateResults,
+	selectSearchState,
+} from "../features/search/resultsSlice";
 import ItemCard from "./ItemCard";
 
 const SearchResults: React.FC<SearchResultsPropsInterface> = ({
 	results,
 	error,
 }) => {
-	const openInfoHandler = (id: number) => {
-		// setResults((oldResults) => {
-		// 	return oldResults.map((result) => {
-		// 		return result.id === id
-		// 			? { ...result, isClicked: result.isClicked ? false : true }
-		// 			: { ...result, isClicked: false };
-		// 	});
-		// });
+	const dispatch = useDispatch();
+	const oldResults = useSelector(selectSearchState);
+
+	const handleShowInfo = (id: number) => {
+		const newResults = oldResults.results.map((result: ResultInterface) => {
+			return result.id === id
+				? { ...result, isClicked: result.isClicked ? false : true }
+				: { ...result, isClicked: false };
+		});
+		dispatch(updateResults(newResults));
 	};
 
 	const SearchResults = results.map((result) => {
@@ -36,7 +46,7 @@ const SearchResults: React.FC<SearchResultsPropsInterface> = ({
 					<button className="search-results__add-favs-button">Add to ❤️</button>
 					<button
 						className="search-results__toggle-info-button"
-						onClick={() => openInfoHandler(result.id)}
+						onClick={() => handleShowInfo(result.id)}
 					>
 						More info
 					</button>

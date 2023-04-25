@@ -1,6 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectSearchState } from "../features/search/resultsSlice";
+import {
+	selectSearchState,
+	updateResults,
+} from "../features/search/resultsSlice";
 import { ResultInterface } from "../app/interfaces";
 
 import SearchResults from "./SearchResults";
@@ -11,10 +14,9 @@ const url = "https://api.discogs.com/database/search?";
 const page = "1";
 
 const SearchContainer = () => {
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 	const searchState = useSelector(selectSearchState);
 
-	const [results, setResults] = useState<ResultInterface[]>([]);
 	const [error, setError] = useState(false);
 
 	const query = searchState.query;
@@ -25,8 +27,6 @@ const SearchContainer = () => {
 	let artistString = `&artist=${query}`;
 	let albumString = `&format=album&title=${query}`;
 	let trackString = `&track=${query}`;
-
-	let innerStringArr = [];
 
 	let innerString;
 	if (artist && album && track) {
@@ -41,35 +41,28 @@ const SearchContainer = () => {
 
 	const fetchResults = useCallback(() => {
 		(async () => {
-			console.log(`${url}${queryString}`);
 			const request = await fetch(`${url}${queryString}`);
 			const response = await request.json();
 			if (!request.ok) {
 				setError(true);
 			} else {
 				setError(false);
-				setResults(
-					response.results.map((result: ResultInterface) => {
-						return { ...result, isClicked: false };
-					}),
-				);
+				const newResults = response.results.map((result: ResultInterface) => {
+					return { ...result, isClicked: false };
+				});
+				dispatch(updateResults(newResults));
 			}
 		})();
-	}, [queryString]);
+	}, [queryString, dispatch]);
 
 	useEffect(() => {
 		fetchResults();
 	}, [fetchResults]);
 
-	const handleOnClick = () => {
-		console.log("search!");
-		fetchResults();
-	};
-
 	return (
 		<div className="search-container">
-			<SearchHeader handleOnClick={handleOnClick} />
-			<SearchResults results={results} error={error} />
+			<SearchHeader />
+			<SearchResults results={searchState.results} error={error} />
 		</div>
 	);
 };

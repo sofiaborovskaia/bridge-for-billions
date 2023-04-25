@@ -1,14 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
+// Reducers
 export const searchReducer = createSlice({
-	name: "queryString",
+	name: "search",
 	initialState: {
 		query: "",
 		artist: false,
 		track: false,
 		album: false,
-		loading: false,
+		results: [],
 	},
 	reducers: {
 		updateQuery: (state, action) => {
@@ -23,12 +24,21 @@ export const searchReducer = createSlice({
 		updateAlbum: (state, action) => {
 			state.album = action.payload;
 		},
+		updateResults: (state, action) => {
+			state.results = action.payload;
+		},
 	},
 });
 
+// Selectors
 export const selectSearchState = (state: RootState) => state.search; //todo: change search to quiery?
 
-export const { updateQuery, updateArtist, updateTrack, updateAlbum } =
-	searchReducer.actions;
+export const {
+	updateQuery,
+	updateArtist,
+	updateTrack,
+	updateAlbum,
+	updateResults,
+} = searchReducer.actions;
 
 export default searchReducer.reducer;

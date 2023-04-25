@@ -15,7 +15,7 @@ import {
 	SelectChangeEvent,
 } from "@mui/material";
 
-const SearchHeader = ({ handleOnClick }: any) => {
+const SearchHeader = () => {
 	const dispatch = useDispatch();
 
 	const [selectLabel, setSelectLabel] = useState("");
