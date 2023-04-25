@@ -114,10 +114,14 @@
 }
 
 .pagination {
-	padding: 10px $page-padding;
+	padding: 20px $page-padding;
 	display: flex;
 	justify-content: center;
 	gap: 10px;
+
+	&__button {
+		cursor: pointer;
+	}
 }
 
 .footer {
