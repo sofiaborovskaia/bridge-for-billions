@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
+import { debounce } from "lodash";
 import {
 	updateQuery,
 	updateArtist,
@@ -47,17 +48,23 @@ const SearchHeader = () => {
 		}
 	};
 
-	const handleIncertText = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setSearchText(event.target.value);
-		dispatch(updateQuery(event.target.value));
-	};
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	const getSearchResults = useCallback(
+		debounce((searchText) => {
+			dispatch(updateQuery(searchText));
+		}, 800),
+		[],
+	);
+
+	useEffect(() => getSearchResults(searchText), [searchText, getSearchResults]);
 
 	return (
 		<div className="search-header">
 			<TextField
 				className="search-header__search-input"
 				value={searchText}
-				onChange={handleIncertText}
+				placeholder="E.g. Billie Eilish"
+				onChange={(e) => setSearchText(e.target.value)}
 			/>
 			<FormControl className="search-header__select" fullWidth>
 				<InputLabel id="select-label">Search by</InputLabel>
@@ -65,7 +72,7 @@ const SearchHeader = () => {
 					labelId="select-label"
 					id="select"
 					value={selectLabel}
-					label="Search by"
+					label="Search by..."
 					onChange={handleSelectChange}
 				>
 					<MenuItem value="artist">Artist</MenuItem>
