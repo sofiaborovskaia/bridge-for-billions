@@ -44,11 +44,18 @@ const SearchResults: React.FC<ResultsProps> = ({ results, error }) => {
 							: "search-results__inline-result"
 					}
 				>
-					<img
-						src={result.thumb}
-						alt={result.title}
-						className="search-results__thumb"
-					/>
+					{result.thumb ? (
+						<img
+							src={result.thumb}
+							alt={result.title}
+							className="search-results__thumb"
+						/>
+					) : (
+						<div className="search-results__thumb">
+							{result.title.substring(0, 1)}
+						</div>
+					)}
+
 					<span className="search-results__title">{result.title}</span>
 					<span className="search-results__type">{result.type}</span>
 

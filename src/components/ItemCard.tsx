@@ -10,7 +10,7 @@ const ItemCard = ({ title, type, image, year, format }: ItemCardProps) => {
 	return (
 		<div className="item-card">
 			<div className="item-card__image">
-				<img src={image} alt={title} />
+				{image && <img src={image} alt={title} />}
 			</div>
 			<div className="item-card__info">
 				<span className="item-card__title">{title}</span>
