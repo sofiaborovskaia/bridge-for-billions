@@ -4,6 +4,10 @@ Welcome to VynilVerse, your ultimate music search engine
 
 This readme describes the app's features and provides an overview of the development process.
 
+[![Demo CountPages alpha](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjE1ZjgwNGZlNzFjMDQwMDM0ZDBhZDBlNjc5ZjQ1ODBjMmE1YTJiMyZjdD1n/n3blMvYV87bK5ICDmP/giphy.gif)](https://www.youtube.com/watch?v=u2M3yL3e7OI)
+
+[Try it yourself!](https://www.google.com "VynilVerse")
+
 ## 🎶 What the app can do (and how)
 
 ### Search results
