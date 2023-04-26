@@ -4,7 +4,7 @@
 		border-bottom: 1px solid black;
 
 		display: grid;
-		grid-template-columns: 50px auto 70px repeat(2, minmax(100px, 10%));
+		grid-template-columns: 50px auto 70px repeat(2, minmax(100px, 150px));
 		align-items: center;
 		gap: 15px;
 
@@ -28,6 +28,9 @@
 
 	&__title {
 		font-weight: 600;
+		@media (max-width: $mobile-max-width) {
+			// grid-column: 2 / span 2;
+		}
 	}
 
 	&__add-favs-button,
@@ -35,6 +38,7 @@
 		padding: 10px;
 		border: black 1px solid;
 		border-radius: 18px;
+		width: #{"min(100%, 150px)"};
 
 		@include transition;
 
@@ -46,18 +50,25 @@
 		&.disabled {
 			pointer-events: none;
 			background-color: black;
+			border-color: black;
 			color: white;
+		}
+
+		&.inactive {
+			pointer-events: none;
 		}
 	}
 
 	&__add-favs-button {
 		@media (max-width: $mobile-max-width) {
-			grid-column: 2;
+			grid-column: 3;
+			grid-row: 1;
 		}
 	}
 	&__toggle-info-button {
 		@media (max-width: $mobile-max-width) {
 			grid-column: 3;
+			grid-row: 2;
 		}
 	}
 
@@ -77,7 +88,7 @@
 	&__type {
 		font-size: 0.8rem;
 		@media (max-width: $mobile-max-width) {
-			text-align: end;
+			grid-column: 2;
 		}
 	}
 

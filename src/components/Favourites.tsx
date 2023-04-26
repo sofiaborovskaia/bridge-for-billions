@@ -36,21 +36,31 @@ const Favourites = () => {
 					<CloseRoundedIcon />
 				</button>
 				<div className="favourites__title">Your collection</div>
-				<ol className="favourites__list">
-					{searchState.favourites.map((favourite) => {
-						return (
-							<li key={favourite.id} className="favourites__list-item">
-								<span className="favourite-text">{favourite.title}</span>
-								<button
-									className="favourite-remove-button"
-									onClick={() => handleRemoveFromFavourites(favourite.id)}
-								>
-									<DeleteIcon fontSize="small" />
-								</button>
-							</li>
-						);
-					})}
-				</ol>
+				{searchState.favourites.length > 0 ? (
+					<ol className="favourites__list">
+						{searchState.favourites.map((favourite) => {
+							return (
+								<li key={favourite.id} className="favourites__list-item">
+									<span className="favourite-text">{favourite.title}</span>
+									<button
+										className="favourite-remove-button"
+										onClick={() => handleRemoveFromFavourites(favourite.id)}
+									>
+										<DeleteIcon fontSize="small" />
+									</button>
+								</li>
+							);
+						})}
+					</ol>
+				) : (
+					<div className="favourites__no-favourites">
+						<span>No favourites yet.</span>
+						<span>Start adding by pressing</span>
+						<button className="search-results__add-favs-button inactive">
+							Add to ❤️
+						</button>
+					</div>
+				)}
 			</div>
 		</div>
 	);

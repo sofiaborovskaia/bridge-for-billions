@@ -4,17 +4,13 @@
 
 	display: flex;
 	justify-content: center;
-	gap: 15px;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 2%;
 
-	@media (max-width: $mobile-max-width) {
-		justify-content: space-between;
-		flex-wrap: wrap;
-		gap: 20px 2%;
-
-		.search-header__select,
-		.search-header__search-input {
-			flex-basis: 49%;
-		}
+	.search-header__select,
+	.search-header__search-input {
+		flex-basis: 49%;
 	}
 
 	&__search-button {
