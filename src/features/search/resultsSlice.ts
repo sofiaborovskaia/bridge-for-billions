@@ -9,7 +9,7 @@ export const searchReducer = createSlice({
 		artist: false,
 		track: false,
 		album: false,
-		results: [],
+		results: [], //todo: add the interface!
 		pagination: { page: 1, pages: 1 },
 		favourites: [],
 		openModal: false,

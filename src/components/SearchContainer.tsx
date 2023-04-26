@@ -49,7 +49,7 @@ const SearchContainer = () => {
 			} else {
 				setError(false);
 				const newResults = response.results.map((result: ResultInterface) => {
-					return { ...result, isClicked: false };
+					return { ...result, isClicked: false, isFavourite: false };
 				});
 				const newPagination = {
 					page: response.pagination.page,

@@ -79,6 +79,12 @@
 			background-color: $primary;
 			border-color: $primary;
 		}
+
+		&.disabled {
+			pointer-events: none;
+			background-color: black;
+			color: white;
+		}
 	}
 
 	&__add-favs-button {

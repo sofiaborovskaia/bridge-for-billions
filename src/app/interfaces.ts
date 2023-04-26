@@ -7,6 +7,7 @@ export interface ResultInterface {
 	year: string;
 	format: string;
 	isClicked: boolean;
+	isFavourite: boolean;
 }
 
 export interface ItemCardInterface {

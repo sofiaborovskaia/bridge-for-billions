@@ -19,12 +19,14 @@ const SearchResults: React.FC<SearchResultsPropsInterface> = ({
 	const searchState = useSelector(selectSearchState);
 
 	const handleShowInfo = (id: number) => {
-		const newResults = searchState.results.map((result: ResultInterface) => {
-			return result.id === id
-				? { ...result, isClicked: result.isClicked ? false : true }
-				: { ...result, isClicked: false };
-		});
-		dispatch(updateResults(newResults));
+		const updatedResults = searchState.results.map(
+			(result: ResultInterface) => {
+				return result.id === id
+					? { ...result, isClicked: result.isClicked ? false : true }
+					: { ...result, isClicked: false };
+			},
+		);
+		dispatch(updateResults(updatedResults));
 	};
 
 	const handleAddToFavourites = (id: number, title: string) => {
@@ -32,7 +34,14 @@ const SearchResults: React.FC<SearchResultsPropsInterface> = ({
 			...searchState.favourites,
 			{ id: id, title: title },
 		];
+		const updatedResults = searchState.results.map(
+			(result: ResultInterface) => {
+				return result.id === id ? { ...result, isFavourite: true } : result;
+			},
+		);
+
 		dispatch(updateFavourites(updatedFavourites));
+		dispatch(updateResults(updatedResults));
 	};
 
 	const SearchResults = results.map((result) => {
@@ -54,11 +63,16 @@ const SearchResults: React.FC<SearchResultsPropsInterface> = ({
 					<span className="search-results__type">{result.type}</span>
 
 					<button
-						className="search-results__add-favs-button"
+						className={
+							result.isFavourite
+								? "search-results__add-favs-button disabled"
+								: "search-results__add-favs-button"
+						}
 						onClick={() => handleAddToFavourites(result.id, result.title)}
 					>
-						Add to ❤️
+						{result.isFavourite ? "In favourites" : "Add to ❤️"}
 					</button>
+
 					<button
 						className="search-results__toggle-info-button"
 						onClick={() => handleShowInfo(result.id)}

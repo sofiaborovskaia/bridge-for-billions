@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
 	selectSearchState,
 	updateFavourites,
+	updateResults,
 	updateOpenModal,
 } from "../features/search/resultsSlice";
 
@@ -16,7 +17,8 @@ const Favourites = () => {
 	// + render favourites in the list -- useSelector in favourites
 	// + on click on remove button remove it from the store -- dispatch updateFavourites in favourites
 
-	// update add to favs button to print "Added to <3"
+	// update add to favs button to print "Added to <3":
+
 	// set item called favourites in local storage [{id: "", title ""}, {id: "", title ""}, {id: "", title ""}]
 
 	const handleCloseModal = () => {
@@ -27,7 +29,14 @@ const Favourites = () => {
 		const updatedFavourites = searchState.favourites.filter(
 			(favourite) => favourite.id !== id,
 		);
+		const updatedResults = searchState.results.map(
+			(result: ResultInterface) => {
+				return result.id === id ? { ...result, isFavourite: false } : result;
+			},
+		);
+
 		dispatch(updateFavourites(updatedFavourites));
+		dispatch(updateResults(updatedResults));
 	};
 
 	return (
