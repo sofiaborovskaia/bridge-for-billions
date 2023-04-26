@@ -49,7 +49,13 @@ const SearchContainer = () => {
 			} else {
 				setError(false);
 				const newResults = response.results.map((result: ResultProps) => {
-					return { ...result, isClicked: false, isFavourite: false };
+					const favourites = searchState.favourites; // array of objects {id, title}
+					const isFavourite =
+						favourites.length > 0 &&
+						favourites.some((favourite) => favourite.id === result.id);
+
+					console.log(result.title, isFavourite);
+					return { ...result, isClicked: false, isFavourite: isFavourite };
 				});
 				const newPagination = {
 					page: response.pagination.page,

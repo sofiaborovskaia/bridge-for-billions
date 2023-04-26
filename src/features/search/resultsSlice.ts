@@ -4,7 +4,7 @@ import { SearchState } from "../../app/interfaces";
 
 const initialState: SearchState = {
 	query: "",
-	artist: false,
+	artist: true,
 	track: false,
 	album: false,
 	results: [],
@@ -50,6 +50,13 @@ export const searchReducer = createSlice({
 		},
 	},
 });
+
+// when a new resut loads
+// if its id is inside favourites[]
+//     isFavourite: true
+// else
+//    isFavourite: falsep
+
 export const {
 	updateQuery,
 	updateArtist,
