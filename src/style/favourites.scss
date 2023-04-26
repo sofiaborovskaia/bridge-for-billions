@@ -1,3 +1,6 @@
+$favourites-height: #{"min(70vh, 500px)"};
+$favourites-width: #{"min(90vw, 400px)"};
+
 .favourites {
 	position: fixed;
 	display: grid;
@@ -9,12 +12,16 @@
 	z-index: 3;
 
 	&__container {
-		height: 300px;
-		width: 300px;
+		height: $favourites-height;
+		width: $favourites-width;
 		padding: 20px;
 		background: $light;
 		box-shadow: 1px 1px 120px 10px $primary;
 		position: relative;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	&__close-button {
@@ -32,15 +39,20 @@
 
 	&__list {
 		overflow-y: auto;
-		height: 200px;
+		height: calc(#{$favourites-height} / 4 * 3);
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	&__list-item {
-		padding: 10px 5px;
+		padding: 10px;
 		counter-increment: num;
 
 		display: flex;
 		justify-content: space-between;
+		gap: 10px;
 
 		&:nth-child(even) {
 			background-color: $accent-1;
@@ -48,6 +60,10 @@
 
 		&::before {
 			content: counter(num) ". ";
+		}
+
+		.favourite-text {
+			text-align: center;
 		}
 	}
 
