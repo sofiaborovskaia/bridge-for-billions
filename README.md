@@ -4,7 +4,7 @@ Welcome to VynilVerse, your ultimate music search engine
 
 This readme describes the app's features and provides an overview of the development process.
 
-### 🎶 What the app can do (and how)
+## 🎶 What the app can do (and how)
 
 #### Search results
 
@@ -24,19 +24,23 @@ The app renders a list of favorite items, which is controlled by the array of fa
 
 There is a simple pagination system with previous/next page functionality and a display of the current page and the total number of pages. If there are more than 99 results, the total pages number prints as 99+. The text is controlled by the object called `pagination` inside the results state, which has two key-value pairs: `page` (current page) and `pages` (total number of pages).
 
-### 🎶 Structure
+## 🎶 Structure
 
-I created a folder called "components" where you can find the components. The styles are in the folder called "styles". There is the base.scss file where you can find all the rest of the SCSS files imported.
+I organized the codebase into two main folders: "components", "styles" and "app". The "components" folder contains all of the React components used in the app, while the "styles" folder contains the SCSS files used to style the app. "app" folder contains TypeScript and Redux files.
 
-### 🎶 Styles
+To ensure type safety, I used TypeScript for this project. Since the app is relatively small, I defined all the necessary types in a single file called interface.ts. However, for larger projects, it's usually best to create separate interface files for each feature or module.
 
-I used SCSS to organize my style sheets. I installed Material UI for the search text input and select box, and used Material Icons for pagination arrows, delete and close buttons. I decided to use TypeScript, and because app is quite small, I defined all the necessary types in one single file `interface.ts`.
+For state management, I chose to use Redux Toolkit's createSlice function to define all of the reducers in a single file called globalSlice.js. In a larger app, it would be more scalable to split the reducers into separate slice files based on their respective features, but as our app has limited features, I found it easier to have one slice.
+
+## 🎶 Styles
+
+I used SCSS to organize my style sheets. Roughly every feature has its scss file, which is imported into `base.scss`. I installed Material UI for the search text input and select box, and used Material Icons for pagination arrows, delete and close buttons.
 
 ## 🎶 GIT
 
 I tried to imitate the regular Git flow by working with main and feature branches. I created a branch called "master", and every time I tackled a new step of creating my app, I tried to create a new branch for each major task (rendering the list of results, creating favorites list, setting up pagination, etc.). Once I considered the task finished, I would merge the working branch into master.
 
-### 🎶 Overview
+## 🎶 Overview
 
 #### What I would improve
 
@@ -49,9 +53,12 @@ Given my limited time and having to balance this task with a full-time job, ther
 - Favourites: Save results to local storage.
 - Style: Override focus styles on input and select elements, add a glowing animation on the Add to ❤️ button, and add a customized scrollbar.
 - Structure: Move the fetch function from search container into the reducers file.
+- Redux: separate global reducer into search (controls search query), results (array of results), pagination and favourites.
 
 #### Challenges and accomplishments
 
-While testing my app, I noticed that it was firing the API call way too many times, which was causing it to crash. I realized that I needed to implement a debouncer on the search query typing. It was the first time for me to implement debounce function in React, and it took me some time to figure out the solution. I had to sacrifice a couple of things from the above ⬆️ list to achieve the desirable result but I'm proud to say that I managed to solve the problem.
+While working on the installation of Redux, I decided to try Redux Toolkit for the first time. It was a bit of a challenge, but I was able to make it work and integrate it into my project. Although I would need to spend some more time to discover its features in depth, it was nice to see that I could successfully use this tool for state management.
+
+When testing my app, I noticed that it was firing the API call way too many times, which was causing it to crash. I realized that I needed to implement a debouncer on the search query typing. It was the first time for me to implement debounce function in React, and it took me some time to figure out the solution. I had to sacrifice a couple of things from the above ⬆️ list to achieve the desirable result but I'm proud to say that I managed to solve the problem.
 
 Despite some time pressure, I'm really happy with the final result. I was able to tackle all the main points of the task and create an app that looks and feels great. And since I had control over the design and functionality, I was able to incorporate my own ideas and make it my own. It was enjoyable to work on something fun, where I had the freedom to decide on the design and functionality.
