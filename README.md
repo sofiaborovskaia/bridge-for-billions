@@ -6,21 +6,21 @@ This readme describes the app's features and provides an overview of the develop
 
 ## 🎶 What the app can do (and how)
 
-#### Search results
+### Search results
 
-The app takes a query and category (artist, track, album, or all) and returns results that include the query string. When the input or select is modified, the results array is set into the results state and adds isClicked (always set to false on this stage) and `isFavourite` (set to false unless found in the list of favorites) key-value pairs.
+The app takes a query and category (artist, track, album, or all) and returns results that include the query string. When the input or select is modified, the results array is set into the results state and adds `isClicked` (always set to `false` on this stage) and `isFavourite` (set to `false` unless found in the list of favorites) key-value pairs.
 
 Results include a thumbnail picture (or, if there's none, the first letter of the result's title with a primary color background), a title, the type of the result, and two buttons: add to favourites and more info.
 
 When the item is added to favorites, the result's `isFavourite` state changes (and the state of the favourites array), and the "Add to favorites" button changes its style and text to "In favorites."
 
-When more info is clicked, it triggers a change in the result's isClicked state, which controls whether the result's card with additional information is opened or not. Given more time, I would have liked to make an additional API call to fetch more additional details (see Overview).
+When more info is clicked, it triggers a change in the result's `isClicked` state, which controls whether the result's card with additional information is opened or not. Given more time, I would have liked to make an additional API call to fetch more additional details (see Overview).
 
-#### Favourites
+### Favourites
 
-The app renders a list of favorite items, which is controlled by the array of favourites that consists of the ID and title of items added into it. The delete button removes the item from the favorites list and updates `favourites` state and this item's `isFavourite` state.
+The app renders a list of favorite items, which is controlled by the array of favourites that consists of search results (= objects of two key-value pairs of `id` and `title`). The delete button removes the item from the favorites list and updates `favourites` state and this item's `isFavourite` state.
 
-#### Pagination
+### Pagination
 
 There is a simple pagination system with previous/next page functionality and a display of the current page and the total number of pages. If there are more than 99 results, the total pages number prints as 99+. The text is controlled by the object called `pagination` inside the results state, which has two key-value pairs: `page` (current page) and `pages` (total number of pages).
 
@@ -28,9 +28,9 @@ There is a simple pagination system with previous/next page functionality and a 
 
 I organized the codebase into two main folders: "components", "styles" and "app". The "components" folder contains all of the React components used in the app, while the "styles" folder contains the SCSS files used to style the app. "app" folder contains TypeScript and Redux files.
 
-To ensure type safety, I used TypeScript for this project. Since the app is relatively small, I defined all the necessary types in a single file called interface.ts. However, for larger projects, it's usually best to create separate interface files for each feature or module.
+To ensure type safety, I used TypeScript for this project. Since the app is relatively small, I defined all the necessary types in a single file called `interface.ts`. However, for larger projects, it's usually best to create separate interface files for each feature or module.
 
-For state management, I chose to use Redux Toolkit's createSlice function to define all of the reducers in a single file called globalSlice.js. In a larger app, it would be more scalable to split the reducers into separate slice files based on their respective features, but as our app has limited features, I found it easier to have one slice.
+For state management, I chose to use Redux Toolkit's `createSlice` function to define all of the reducers in a single file called `globalSlice.ts`. In a larger app, it would be more scalable to split the reducers into separate slice files based on their respective features, but as our app has limited features, I found it easier to work with a single sourse of state.
 
 ## 🎶 Styles
 
@@ -42,7 +42,7 @@ I tried to imitate the regular Git flow by working with main and feature branche
 
 ## 🎶 Overview
 
-#### What I would improve
+### What I would improve
 
 Given my limited time and having to balance this task with a full-time job, there were some things I couldn't include in the initial version of the app. With additional time, I would address the following points:
 
@@ -55,7 +55,7 @@ Given my limited time and having to balance this task with a full-time job, ther
 - Structure: Move the fetch function from search container into the reducers file.
 - Redux: separate global reducer into search (controls search query), results (array of results), pagination and favourites.
 
-#### Challenges and accomplishments
+### Challenges and accomplishments
 
 While working on the installation of Redux, I decided to try Redux Toolkit for the first time. It was a bit of a challenge, but I was able to make it work and integrate it into my project. Although I would need to spend some more time to discover its features in depth, it was nice to see that I could successfully use this tool for state management.
 
