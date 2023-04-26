@@ -1,4 +1,4 @@
-export interface ResultInterface {
+export interface ResultProps {
 	id: number;
 	type: string;
 	title: string;
@@ -10,7 +10,7 @@ export interface ResultInterface {
 	isFavourite: boolean;
 }
 
-export interface ItemCardInterface {
+export interface ItemCardProps {
 	title: string;
 	type: string;
 	image: string;
@@ -18,7 +18,23 @@ export interface ItemCardInterface {
 	format: string;
 }
 
-export interface SearchResultsPropsInterface {
-	results: ResultInterface[];
+export interface ResultsProps {
+	results: ResultProps[];
 	error: boolean;
+}
+
+// export interface FavouriteInterface {
+// 	id: number;
+// 	title: string;
+// }
+
+export interface SearchState {
+	query: string;
+	artist: boolean;
+	album: boolean;
+	track: boolean;
+	pagination: { page: 1; pages: 1 };
+	results: [];
+	favourites: { id: number; title: string }[];
+	openModal: boolean;
 }

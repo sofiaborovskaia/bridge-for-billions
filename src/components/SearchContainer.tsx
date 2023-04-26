@@ -5,7 +5,7 @@ import {
 	updateResults,
 	updatePagination,
 } from "../features/search/resultsSlice";
-import { ResultInterface } from "../app/interfaces";
+import { ResultProps } from "../app/interfaces";
 
 import SearchResults from "./SearchResults";
 import SearchHeader from "./SearchHeader";
@@ -48,7 +48,7 @@ const SearchContainer = () => {
 				setError(true);
 			} else {
 				setError(false);
-				const newResults = response.results.map((result: ResultInterface) => {
+				const newResults = response.results.map((result: ResultProps) => {
 					return { ...result, isClicked: false, isFavourite: false };
 				});
 				const newPagination = {

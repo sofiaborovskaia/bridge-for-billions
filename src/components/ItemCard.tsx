@@ -1,6 +1,6 @@
-import { ItemCardInterface } from "../app/interfaces";
+import { ItemCardProps } from "../app/interfaces";
 
-const ItemCard = ({ title, type, image, year, format }: ItemCardInterface) => {
+const ItemCard = ({ title, type, image, year, format }: ItemCardProps) => {
 	const formatItems =
 		format &&
 		Object.values(format).map((formatItem) => {

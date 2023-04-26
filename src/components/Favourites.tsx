@@ -7,33 +7,23 @@ import {
 	updateResults,
 	updateOpenModal,
 } from "../features/search/resultsSlice";
+import { ResultProps } from "../app/interfaces";
 
 const Favourites = () => {
 	const dispatch = useDispatch();
 	const searchState = useSelector(selectSearchState);
 
-	// + create a state for favourites
-	// + on click add item to favourites if it's not there -- dispatch updateFavourites in search results
-	// + render favourites in the list -- useSelector in favourites
-	// + on click on remove button remove it from the store -- dispatch updateFavourites in favourites
-
-	// update add to favs button to print "Added to <3":
-
-	// set item called favourites in local storage [{id: "", title ""}, {id: "", title ""}, {id: "", title ""}]
-
 	const handleCloseModal = () => {
 		dispatch(updateOpenModal(false));
 	};
 
-	const handleRemoveFromFavourites = (id) => {
+	const handleRemoveFromFavourites = (id: number) => {
 		const updatedFavourites = searchState.favourites.filter(
 			(favourite) => favourite.id !== id,
 		);
-		const updatedResults = searchState.results.map(
-			(result: ResultInterface) => {
-				return result.id === id ? { ...result, isFavourite: false } : result;
-			},
-		);
+		const updatedResults = searchState.results.map((result: ResultProps) => {
+			return result.id === id ? { ...result, isFavourite: false } : result;
+		});
 
 		dispatch(updateFavourites(updatedFavourites));
 		dispatch(updateResults(updatedResults));
@@ -47,7 +37,7 @@ const Favourites = () => {
 				</button>
 				<div className="favourites__title">Your collection</div>
 				<ol className="favourites__list">
-					{searchState.favourites.map((favourite, index) => {
+					{searchState.favourites.map((favourite) => {
 						return (
 							<li key={favourite.id} className="favourites__list-item">
 								<span className="favourite-text">{favourite.title}</span>

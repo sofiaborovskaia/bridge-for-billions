@@ -1,19 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
+import { SearchState } from "../../app/interfaces";
+
+const initialState: SearchState = {
+	query: "",
+	artist: false,
+	track: false,
+	album: false,
+	results: [],
+	pagination: { page: 1, pages: 1 },
+	favourites: [],
+	openModal: false,
+};
 
 // Reducers
 export const searchReducer = createSlice({
 	name: "search",
-	initialState: {
-		query: "",
-		artist: false,
-		track: false,
-		album: false,
-		results: [], //todo: add the interface!
-		pagination: { page: 1, pages: 1 },
-		favourites: [],
-		openModal: false,
-	},
+	initialState,
 	reducers: {
 		updateQuery: (state, action) => {
 			state.query = action.payload;
@@ -61,6 +64,7 @@ export const {
 } = searchReducer.actions;
 
 // Selectors
-export const selectSearchState = (state: RootState) => state.search;
+export const selectSearchState = (state: RootState): SearchState =>
+	state.search;
 
 export default searchReducer.reducer;
