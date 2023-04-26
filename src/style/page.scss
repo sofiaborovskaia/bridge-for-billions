@@ -1,9 +1,16 @@
+.page-container {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
 .search-container {
 	padding-inline: $page-padding;
 	padding-bottom: 50px;
 }
 
 .footer {
+	margin-top: auto;
 	padding: 10px $page-padding;
 	background: $primary;
 	text-align: center;

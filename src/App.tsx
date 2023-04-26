@@ -7,7 +7,7 @@ import "./style/base.scss";
 
 function App() {
 	return (
-		<div>
+		<div className="page-container">
 			<HeroHeading />
 			<SearchContainer />
 			<Footer />
