@@ -1,6 +1,6 @@
-## VynilVerse
+# 🎺 VynilVerse 🎺
 
-🎺 Welcome to VynilVerse, your ultimate music search engine 🎺
+Welcome to VynilVerse, your ultimate music search engine
 
 This readme describes the app's features and provides an overview of the development process.
 
