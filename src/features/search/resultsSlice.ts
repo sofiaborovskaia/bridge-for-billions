@@ -51,12 +51,6 @@ export const searchReducer = createSlice({
 	},
 });
 
-// when a new resut loads
-// if its id is inside favourites[]
-//     isFavourite: true
-// else
-//    isFavourite: falsep
-
 export const {
 	updateQuery,
 	updateArtist,
