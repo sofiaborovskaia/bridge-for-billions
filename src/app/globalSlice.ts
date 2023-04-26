@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../../app/store";
-import { SearchState } from "../../app/interfaces";
+import { RootState } from "./store";
+import { SearchState } from "./interfaces";
 
 const initialState: SearchState = {
 	query: "",
@@ -14,8 +14,8 @@ const initialState: SearchState = {
 };
 
 // Reducers
-export const searchReducer = createSlice({
-	name: "search",
+export const globalReducer = createSlice({
+	name: "global",
 	initialState,
 	reducers: {
 		updateQuery: (state, action) => {
@@ -62,10 +62,10 @@ export const {
 	prevPage,
 	updateFavourites,
 	updateOpenModal,
-} = searchReducer.actions;
+} = globalReducer.actions;
 
 // Selectors
 export const selectSearchState = (state: RootState): SearchState =>
-	state.search;
+	state.global;
 
-export default searchReducer.reducer;
+export default globalReducer.reducer;

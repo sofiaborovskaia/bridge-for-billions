@@ -2,11 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 
-import {
-	nextPage,
-	prevPage,
-	selectSearchState,
-} from "../features/search/resultsSlice";
+import { nextPage, prevPage, selectSearchState } from "../app/globalSlice";
 
 const Pagination = () => {
 	const dispatch = useDispatch();

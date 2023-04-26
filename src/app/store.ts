@@ -1,9 +1,9 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import searchReducer from "../features/search/resultsSlice";
+import globalReducer from "./globalSlice";
 
 export const store = configureStore({
 	reducer: {
-		search: searchReducer,
+		global: globalReducer,
 	},
 });
 

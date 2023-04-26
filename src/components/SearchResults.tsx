@@ -4,7 +4,7 @@ import {
 	updateResults,
 	updateFavourites,
 	selectSearchState,
-} from "../features/search/resultsSlice";
+} from "../app/globalSlice";
 import ItemCard from "./ItemCard";
 import Pagination from "./Pagination";
 

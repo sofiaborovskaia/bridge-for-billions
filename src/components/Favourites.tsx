@@ -6,7 +6,7 @@ import {
 	updateFavourites,
 	updateResults,
 	updateOpenModal,
-} from "../features/search/resultsSlice";
+} from "../app/globalSlice";
 import { ResultProps } from "../app/interfaces";
 
 const Favourites = () => {

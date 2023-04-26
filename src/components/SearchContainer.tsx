@@ -4,7 +4,7 @@ import {
 	selectSearchState,
 	updateResults,
 	updatePagination,
-} from "../features/search/resultsSlice";
+} from "../app/globalSlice";
 import { ResultProps } from "../app/interfaces";
 
 import SearchResults from "./SearchResults";
