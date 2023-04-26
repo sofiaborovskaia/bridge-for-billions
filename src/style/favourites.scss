@@ -39,6 +39,9 @@
 		padding: 10px 5px;
 		counter-increment: num;
 
+		display: flex;
+		justify-content: space-between;
+
 		&:nth-child(even) {
 			background-color: $accent-1;
 		}

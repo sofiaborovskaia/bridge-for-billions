@@ -75,7 +75,11 @@ button {
 	}
 }
 
-.invisible {
+.visually-hidden {
 	opacity: 0;
 	pointer-events: none;
+}
+
+.hidden {
+	display: none;
 }

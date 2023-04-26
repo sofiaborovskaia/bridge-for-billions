@@ -1,4 +1,13 @@
+import { useDispatch } from "react-redux";
+import { updateOpenModal } from "../features/search/resultsSlice";
+
 const HeroHeading = () => {
+	const dispatch = useDispatch();
+
+	const handleOpenModal = () => {
+		dispatch(updateOpenModal(true));
+	};
+
 	return (
 		<div className="hero-heading">
 			<div className="hero-heading__title-wrapper">
@@ -17,7 +26,9 @@ const HeroHeading = () => {
 			<span className="hero-heading__subtitle desktop-hide">
 				Your ultimate music search engine
 			</span>
-			<div className="hero-heading__show-favs-button">My list ❤️</div>
+			<div className="hero-heading__show-favs-button" onClick={handleOpenModal}>
+				My list ❤️
+			</div>
 		</div>
 	);
 };

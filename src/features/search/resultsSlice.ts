@@ -11,6 +11,8 @@ export const searchReducer = createSlice({
 		album: false,
 		results: [],
 		pagination: { page: 1, pages: 1 },
+		favourites: [],
+		openModal: false,
 	},
 	reducers: {
 		updateQuery: (state, action) => {
@@ -37,6 +39,12 @@ export const searchReducer = createSlice({
 		updateResults: (state, action) => {
 			state.results = action.payload;
 		},
+		updateFavourites: (state, action) => {
+			state.favourites = action.payload;
+		},
+		updateOpenModal: (state, action) => {
+			state.openModal = action.payload;
+		},
 	},
 });
 export const {
@@ -48,6 +56,8 @@ export const {
 	updatePagination,
 	nextPage,
 	prevPage,
+	updateFavourites,
+	updateOpenModal,
 } = searchReducer.actions;
 
 // Selectors

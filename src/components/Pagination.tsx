@@ -26,7 +26,7 @@ const Pagination = () => {
 	return (
 		<div className="pagination">
 			<button
-				className={currentPage < 2 ? "invisible" : "pagination__button"}
+				className={currentPage < 2 ? "visually-hidden" : "pagination__button"}
 				onClick={handlePrevPage}
 			>
 				<ArrowBackRoundedIcon />
@@ -36,7 +36,7 @@ const Pagination = () => {
 			</span>
 			<button
 				className={
-					currentPage === totalPages ? "invisible" : "pagination__button"
+					currentPage === totalPages ? "visually-hidden" : "pagination__button"
 				}
 				onClick={handleNextPage}
 			>

@@ -5,6 +5,7 @@ import {
 } from "../app/interfaces";
 import {
 	updateResults,
+	updateFavourites,
 	selectSearchState,
 } from "../features/search/resultsSlice";
 import ItemCard from "./ItemCard";
@@ -15,15 +16,23 @@ const SearchResults: React.FC<SearchResultsPropsInterface> = ({
 	error,
 }) => {
 	const dispatch = useDispatch();
-	const oldResults = useSelector(selectSearchState);
+	const searchState = useSelector(selectSearchState);
 
 	const handleShowInfo = (id: number) => {
-		const newResults = oldResults.results.map((result: ResultInterface) => {
+		const newResults = searchState.results.map((result: ResultInterface) => {
 			return result.id === id
 				? { ...result, isClicked: result.isClicked ? false : true }
 				: { ...result, isClicked: false };
 		});
 		dispatch(updateResults(newResults));
+	};
+
+	const handleAddToFavourites = (id: number, title: string) => {
+		const updatedFavourites = [
+			...searchState.favourites,
+			{ id: id, title: title },
+		];
+		dispatch(updateFavourites(updatedFavourites));
 	};
 
 	const SearchResults = results.map((result) => {
@@ -44,7 +53,12 @@ const SearchResults: React.FC<SearchResultsPropsInterface> = ({
 					<span className="search-results__title">{result.title}</span>
 					<span className="search-results__type">{result.type}</span>
 
-					<button className="search-results__add-favs-button">Add to ❤️</button>
+					<button
+						className="search-results__add-favs-button"
+						onClick={() => handleAddToFavourites(result.id, result.title)}
+					>
+						Add to ❤️
+					</button>
 					<button
 						className="search-results__toggle-info-button"
 						onClick={() => handleShowInfo(result.id)}
