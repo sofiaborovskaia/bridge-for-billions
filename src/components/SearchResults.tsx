@@ -98,6 +98,11 @@ const SearchResults: React.FC<ResultsProps> = ({ results, error }) => {
 					<Pagination />
 				</>
 			)}
+			{results && results.length === 0 && (
+				<div className="search-results__no-results">
+					No results that match your search. Try again!
+				</div>
+			)}
 			{error && <p>Something went wrong :( </p>}
 		</>
 	);
