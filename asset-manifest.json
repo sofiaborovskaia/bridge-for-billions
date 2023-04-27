@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/vinylz/static/css/main.799d95fb.css",
-    "main.js": "/vinylz/static/js/main.63ad8d43.js",
-    "index.html": "/vinylz/index.html",
-    "main.799d95fb.css.map": "/vinylz/static/css/main.799d95fb.css.map",
-    "main.63ad8d43.js.map": "/vinylz/static/js/main.63ad8d43.js.map"
+    "main.css": "/vinylverse/static/css/main.a401156c.css",
+    "main.js": "/vinylverse/static/js/main.e4adbcc6.js",
+    "index.html": "/vinylverse/index.html",
+    "main.a401156c.css.map": "/vinylverse/static/css/main.a401156c.css.map",
+    "main.e4adbcc6.js.map": "/vinylverse/static/js/main.e4adbcc6.js.map"
   },
   "entrypoints": [
-    "static/css/main.799d95fb.css",
-    "static/js/main.63ad8d43.js"
+    "static/css/main.a401156c.css",
+    "static/js/main.e4adbcc6.js"
   ]
 }
