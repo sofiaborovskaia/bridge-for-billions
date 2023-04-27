@@ -27,7 +27,7 @@ const SearchContainer = () => {
 
 	let artistString = `&artist=${query}`;
 	let albumString = `&format=album&title=${query}`;
-	let trackString = `&title=${query}`;
+	let trackString = `&track=${query}`;
 
 	let innerString;
 	if (artist && album && track) {
@@ -67,7 +67,7 @@ const SearchContainer = () => {
 				dispatch(updatePagination(newPagination));
 			}
 		})();
-	}, [queryString, dispatch]);
+	}, [queryString, dispatch, searchState.favourites]);
 
 	useEffect(() => {
 		fetchResults();
