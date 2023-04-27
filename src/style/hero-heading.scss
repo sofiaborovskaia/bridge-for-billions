@@ -1,7 +1,7 @@
 .hero-heading {
 	position: relative;
 	padding: 40px $page-padding;
-	background: linear-gradient(113.65deg, $primary 3.96%, $accent-1 64.43%);
+	background: linear-gradient(113.65deg, $primary 3.96%, $accent 64.43%);
 
 	display: grid;
 	place-items: center;
@@ -28,7 +28,7 @@
 		align-self: flex-start;
 		padding: 2px 12px;
 		font-size: 0.9rem;
-		color: $accent-1;
+		color: $accent;
 		border-radius: 9px;
 		background: black;
 	}

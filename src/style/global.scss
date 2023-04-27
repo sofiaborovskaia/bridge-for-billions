@@ -11,8 +11,7 @@ $mobile-max-width: 550px;
 $desktop-min-width: 551px;
 
 // Colors
-$accent-1: #fff6a4;
-$accent-2: #baff91;
+$accent: #fff6a4;
 $primary: rgb(229, 181, 227);
 $light: #f7f7f7;
 
@@ -57,6 +56,7 @@ a {
 }
 
 button {
+	color: black;
 	background: none;
 	border: none;
 	cursor: pointer;

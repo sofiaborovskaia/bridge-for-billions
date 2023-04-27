@@ -51,7 +51,7 @@ $favourites-width: #{"min(90vw, 400px)"};
 		gap: 10px;
 
 		&:nth-child(even) {
-			background-color: $accent-1;
+			background-color: $accent;
 		}
 
 		&::before {
