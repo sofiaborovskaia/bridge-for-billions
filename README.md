@@ -7,11 +7,11 @@ This readme describes the app's features and provides an overview of the develop
 
 </p>
 
-[![Demo VynilVerse](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDYwZjA2ZTAxYjM5MmNmZWYzN2M4MTFkMzZkNDgzMDE2MWZmZGIxNyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/yy42zBHuOSyRjDFwSf/giphy.gif)](https://sofiaborovskaia.github.io/bridge-for-billions)
+[![Demo VynilVerse](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDYwZjA2ZTAxYjM5MmNmZWYzN2M4MTFkMzZkNDgzMDE2MWZmZGIxNyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/yy42zBHuOSyRjDFwSf/giphy.gif)](https://sofiaborovskaia.github.io/vinylverse)
 
 <p align="center">
 
-[Try it yourself!](https://sofiaborovskaia.github.io/bridge-for-billions "VynilVerse")
+[Try it yourself!](https://sofiaborovskaia.github.io/vinylverse "VynilVerse")
 
 </p>
 
