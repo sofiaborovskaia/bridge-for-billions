@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/vinylverse/static/css/main.261835a2.css",
+    "main.css": "/vinylverse/static/css/main.9ba7bcc0.css",
     "main.js": "/vinylverse/static/js/main.56b2c82f.js",
     "index.html": "/vinylverse/index.html",
-    "main.261835a2.css.map": "/vinylverse/static/css/main.261835a2.css.map",
+    "main.9ba7bcc0.css.map": "/vinylverse/static/css/main.9ba7bcc0.css.map",
     "main.56b2c82f.js.map": "/vinylverse/static/js/main.56b2c82f.js.map"
   },
   "entrypoints": [
-    "static/css/main.261835a2.css",
+    "static/css/main.9ba7bcc0.css",
     "static/js/main.56b2c82f.js"
   ]
 }
