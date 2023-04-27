@@ -12,13 +12,13 @@ This readme describes the app's features and provides an overview of the develop
 
 ### Search results
 
-The app takes a query and category (artist, track, album, or all) and returns results that include the query string. When the input or select is modified, the results array is set into the results state and adds `isClicked` (always set to `false` on this stage) and `isFavourite` (set to `false` unless found in the list of favorites) key-value pairs.
+The app takes a query and category (artist, track, album, or all) and returns results that include the query string. When the input or select is modified, the results array is set into the `results` state and adds `isClicked` (always set to `false` on this stage) and `isFavourite` (set to `false` unless found in the list of favorites) key-value pairs.
 
 Results include a thumbnail picture (or, if there's none, the first letter of the result's title with a primary color background), a title, the type of the result, and two buttons: add to favourites and more info.
 
-When the item is added to favorites, the result's `isFavourite` state changes (and the state of the favourites array), and the "Add to favorites" button changes its style and text to "In favorites."
+When the item is added to favorites, the result's `isFavourite` state changes (and the state of the favourites list), and the "Add to favorites" button changes its style and text to "In favorites."
 
-When more info is clicked, it triggers a change in the result's `isClicked` state, which controls whether the result's card with additional information is opened or not. Given more time, I would have liked to make an additional API call to fetch more additional details (see Overview).
+When more info is clicked, it triggers a change in the result's `isClicked` state, which controls whether the result's card with additional information is opened or not. Given more time, I would have liked to make an additional API call to fetch more details about the result (see Overview). Rigt now it renders a bigger picture related to the result item, its title, type, and year and available formats (only for releses).
 
 ### Favourites
 

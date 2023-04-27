@@ -5,8 +5,8 @@ import { SearchState } from "./interfaces";
 const initialState: SearchState = {
 	query: "",
 	artist: true,
-	track: false,
-	album: false,
+	track: true,
+	album: true,
 	results: [],
 	pagination: { page: 1, pages: 1 },
 	favourites: [],

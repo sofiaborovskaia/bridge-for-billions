@@ -27,7 +27,7 @@ const SearchContainer = () => {
 
 	let artistString = `&artist=${query}`;
 	let albumString = `&format=album&title=${query}`;
-	let trackString = `&track=${query}`;
+	let trackString = `&title=${query}`;
 
 	let innerString;
 	if (artist && album && track) {
@@ -43,11 +43,13 @@ const SearchContainer = () => {
 	const fetchResults = useCallback(() => {
 		(async () => {
 			const request = await fetch(`${url}${queryString}`);
-			const response = await request.json();
+
 			if (!request.ok) {
 				setError(true);
 			} else {
 				setError(false);
+				const response = await request.json();
+
 				const newResults = response.results.map((result: ResultProps) => {
 					const favourites = searchState.favourites;
 					const isFavourite =

@@ -19,7 +19,7 @@ import {
 const SearchHeader = () => {
 	const dispatch = useDispatch();
 
-	const [selectLabel, setSelectLabel] = useState("");
+	const [selectLabel, setSelectLabel] = useState("all");
 	const [searchText, setSearchText] = useState("");
 
 	const handleSelectChange = (event: SelectChangeEvent) => {
@@ -67,17 +67,17 @@ const SearchHeader = () => {
 				onChange={(e) => setSearchText(e.target.value)}
 			/>
 			<FormControl className="search-header__select" fullWidth>
-				<InputLabel id="select-label">Search by</InputLabel>
+				<InputLabel id="select-label">Search in</InputLabel>
 				<Select
 					labelId="select-label"
 					id="select"
 					value={selectLabel}
-					label="Search by..."
+					label="Search in"
 					onChange={handleSelectChange}
 				>
-					<MenuItem value="artist">Artist</MenuItem>
-					<MenuItem value="album">Album</MenuItem>
-					<MenuItem value="track">Track</MenuItem>
+					<MenuItem value="artist">Artists</MenuItem>
+					<MenuItem value="album">Albums</MenuItem>
+					<MenuItem value="track">Tracks</MenuItem>
 					<MenuItem value="all">All</MenuItem>
 				</Select>
 			</FormControl>

@@ -92,18 +92,22 @@ const SearchResults: React.FC<ResultsProps> = ({ results, error }) => {
 
 	return (
 		<>
-			{results && results.length > 0 && (
+			{!error && results && results.length > 0 && (
 				<>
 					<ul className="search-results">{SearchResults}</ul>
 					<Pagination />
 				</>
 			)}
-			{results && results.length === 0 && (
-				<div className="search-results__no-results">
+			{!error && results && results.length === 0 && (
+				<p className="search-results__no-results">
 					No results that match your search. Try again!
-				</div>
+				</p>
 			)}
-			{error && <p>Something went wrong :( </p>}
+			{error && (
+				<p className="search-results__no-results">
+					Something went wrong 🤨 Try again later!
+				</p>
+			)}
 		</>
 	);
 };
