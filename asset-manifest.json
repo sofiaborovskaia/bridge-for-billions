@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/bridge-for-billions/static/css/main.799d95fb.css",
+    "main.js": "/bridge-for-billions/static/js/main.63ad8d43.js",
+    "index.html": "/bridge-for-billions/index.html",
+    "main.799d95fb.css.map": "/bridge-for-billions/static/css/main.799d95fb.css.map",
+    "main.63ad8d43.js.map": "/bridge-for-billions/static/js/main.63ad8d43.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.799d95fb.css",
+    "static/js/main.63ad8d43.js"
+  ]
+}
