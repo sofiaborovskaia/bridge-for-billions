@@ -12,7 +12,7 @@ const HeroHeading = () => {
 		<div className="hero-heading">
 			<div className="hero-heading__title-wrapper">
 				<span className="hero-heading__welcome-text">Welcome to</span>
-				<h1 className="hero-heading__title">VynilVerse</h1>
+				<h1 className="hero-heading__title">VinylVerse</h1>
 				<span className="hero-heading__version-tag"> v1.0.0</span>
 			</div>
 

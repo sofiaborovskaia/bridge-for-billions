@@ -1,17 +1,21 @@
-<h1 align="center">🎺 VynilVerse 🎺</h1>
+<h1 align="center">🎺 VinylVerse 🎺</h1>
 
 <p align="center">
-Welcome to VynilVerse, your ultimate music search engine
+Welcome to VinylVerse, your ultimate music search engine
 
 This readme describes the app's features and provides an overview of the development process.
 
 </p>
 
-[![Demo VynilVerse](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDYwZjA2ZTAxYjM5MmNmZWYzN2M4MTFkMzZkNDgzMDE2MWZmZGIxNyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/yy42zBHuOSyRjDFwSf/giphy.gif)](https://sofiaborovskaia.github.io/vinylverse)
+## 🎶 Demo
+
+# Full preview is available [here](https://sofiaborovskaia.github.io/https://sofiaborovskaia.github.io/vinylverse/).
+
+[![Demo VinylVerse](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDYwZjA2ZTAxYjM5MmNmZWYzN2M4MTFkMzZkNDgzMDE2MWZmZGIxNyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/yy42zBHuOSyRjDFwSf/giphy.gif)](https://sofiaborovskaia.github.io/vinylverse)
 
 <p align="center">
 
-[Try it yourself!](https://sofiaborovskaia.github.io/vinylverse "VynilVerse")
+[Try it yourself!](https://sofiaborovskaia.github.io/vinylverse "VinylVerse")
 
 </p>
 
