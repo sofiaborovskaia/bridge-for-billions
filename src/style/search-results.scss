@@ -29,7 +29,10 @@
 	&__title {
 		font-weight: 600;
 		@media (max-width: $mobile-max-width) {
-			// grid-column: 2 / span 2;
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
 		}
 	}
 
@@ -63,6 +66,7 @@
 		@media (max-width: $mobile-max-width) {
 			grid-column: 3;
 			grid-row: 1;
+			margin-top: auto;
 		}
 	}
 	&__toggle-info-button {
