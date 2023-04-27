@@ -13,7 +13,7 @@ const HeroHeading = () => {
 			<div className="hero-heading__title-wrapper">
 				<span className="hero-heading__welcome-text">Welcome to</span>
 				<h1 className="hero-heading__title">VinylVerse</h1>
-				<span className="hero-heading__version-tag"> v1.0.0</span>
+				<span className="hero-heading__version-tag"> v0.1.0</span>
 			</div>
 
 			<ul className="hero-heading__subtitle mobile-hide">

@@ -38,7 +38,7 @@ const SearchContainer = () => {
 		}`;
 	}
 
-	const queryString = `${innerString}&token=${token}&page=${page}&per_page=10`;
+	const queryString = `${innerString}&token=${token}&page=${page}&per_page=7`;
 
 	const fetchResults = useCallback(() => {
 		(async () => {

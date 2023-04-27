@@ -15,4 +15,10 @@
 	background: $primary;
 	text-align: center;
 	font-size: 0.7rem;
+
+	@media (min-width: $desktop-min-width) {
+		display: flex;
+		justify-content: center;
+		gap: 7px;
+	}
 }
