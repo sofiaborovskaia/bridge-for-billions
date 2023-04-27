@@ -1,10 +1,13 @@
 <h1 align="center">🎺 VynilVerse 🎺</h1>
 
-<p align="center">
+<p text-align="center">
 Welcome to VynilVerse, your ultimate music search engine
 
 This readme describes the app's features and provides an overview of the development process.
 
+</p>
+
+<p text-align="center">
 [![Demo CountPages alpha](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDYwZjA2ZTAxYjM5MmNmZWYzN2M4MTFkMzZkNDgzMDE2MWZmZGIxNyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/yy42zBHuOSyRjDFwSf/giphy.gif)](https://sofiaborovskaia.github.io/bridge-for-billions)
 
 [Try it yourself!](https://sofiaborovskaia.github.io/bridge-for-billions "VynilVerse")
