@@ -43,11 +43,11 @@ For state management, I chose to use Redux Toolkit's `createSlice` function to d
 
 ## 🎶 Styles
 
-I used SCSS to organize my style sheets. Roughly every feature has its scss file, which is imported into `base.scss`. I installed Material UI for the search text input and select box, and used Material Icons for pagination arrows, delete and close buttons.
+I used SCSS to organize my style sheets. Roughly every component has its own scss file, even though I did unify some of them (footer styles are inside `page.scss`, card's ones are in `search-results.scss`). I defined variables, mixins and some classes that are used globally across the app in `global.scss`. All the scss files are imported into `base.scss`. Also, I installed Material UI for the search text input and select box, and used Material Icons for pagination arrows, delete and close buttons.
 
 ## 🎶 GIT
 
-I tried to imitate the regular Git flow by working with main and feature branches. I created a branch called "master", and every time I tackled a new step of creating my app, I tried to create a new branch for each major task (rendering the list of results, creating favorites list, setting up pagination, etc.). Once I considered the task finished, I would merge the working branch into master.
+I tried to imitate the regular Git flow by working with main and feature branches. I created a branch called "master", and every time I tackled a new step of creating my app, I tried to create a new branch for each major task (rendering the list of results, creating favorites list, setting up pagination, etc.). Once I considered the task finished, I would merge the working branch into master. I did, however, work on minor changes (restyling, changing texts, uploading favicon, updating readme, etc.) directly on `master` branch, which is not something I would do if there were other people working on this task.
 
 ## 🎶 Overview
 
