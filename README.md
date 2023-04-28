@@ -17,21 +17,21 @@ This readme describes the app's features and provides an overview of the develop
 
 ### Search results
 
-The app takes a query and category (artist, track, album, or all) and returns results that include the query string. When the input or select is modified, the results array is set into the `results` state and adds `isClicked` (always set to `false` on this stage) and `isFavourite` (set to `false` unless found in the list of favorites) key-value pairs.
+The app takes a query and category (artist, track, album, or all) and returns results that include the query string. When the input or select is modified, the api call is made and in case of a successful response, the results array is set into the `results` state anf each individual result gets added `isClicked` (always set to `false`) and `isFavourite` (set to `false` unless found in the list of favorites) key-value pairs.
 
-Results include a thumbnail picture (or, if there's none, the first letter of the result's title with a primary color background), a title, the type of the result, and two buttons: add to favourites and more info.
+Results include a thumbnail picture (or, if there's none, the first letter of the result's title with a primary color background), a title, the type of the result (artist, master, release), and two buttons: Add to favourites and More info.
 
-When the item is added to favorites, the result's `isFavourite` state changes (and the state of the favourites list), and the "Add to favorites" button changes its style and text to "In favorites."
+When the item is added to favorites, state variable named `favourites` (the one that controls the content of favourites list) and the result's `isFavourite` state change, and the "Add to favorites" button changes its style and text to "In favorites."
 
-When more info is clicked, it triggers a change in the result's `isClicked` state, which controls whether the result's card with additional information is opened or not. Given more time, I would have liked to make an additional API call to fetch more details about the result (see Overview). Right now it renders a bigger picture related to the result item, its title, type, year and available formats (last two only for releases).
+When More info button is clicked, it triggers a change in the result's `isClicked` state, which controls whether the result's card with additional information is opened or not. Given more time, I would have liked to make an additional API call to fetch more details about the result (see Overview). Right now it renders a bigger picture related to the result item, its title, type, year and available formats (last two only for releases).
 
 ### Favourites
 
-The app renders a list of favorite items, which is controlled by the array of favourites that consists of search results (= objects of two key-value pairs of `id` and `title`). The delete button removes the item from the favorites list and updates `favourites` state and this item's `isFavourite` state.
+The app renders a list of favorite items (`favourites` state variable), that consists of search results (= objects of two key-value pairs of `id` and `title`). The delete button removes the item from the favorites list and updates `favourites` state and current item's `isFavourite` state.
 
 ### Pagination
 
-There is a simple pagination system with previous/next page functionality and a display of the current page and the total number of pages. If there are more than 99 results, the total page number prints as 99+. The text is controlled by the object called `pagination` inside the results state, which has two key-value pairs: `page` (current page) and `pages` (total number of pages).
+There is a simple pagination system with previous/next page functionality and a display of the current page and the total number of pages. If there are more than 99 results, the total page number prints as 99+. The text is controlled by the state variable called `pagination` inside the results state, which is represented by an object that has two key-value pairs: `page` (current page) and `pages` (total number of pages).
 
 ## 🎶 Structure
 
