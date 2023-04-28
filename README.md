@@ -43,7 +43,7 @@ For state management, I chose to use Redux Toolkit's `createSlice` function to d
 
 ## 🎶 Styles
 
-I used SCSS to organize my style sheets. Roughly every component has its own scss file, even though I did unify some of them (footer styles are inside `page.scss`, card's ones are in `search-results.scss`). I defined variables, mixins and some classes that are used globally across the app in `global.scss`. All the scss files are imported into `base.scss`. Also, I installed Material UI for the search text input and select box, and used Material Icons for pagination arrows, delete and close buttons.
+I used SCSS to organize my style sheets. Roughly every component has its own SCSS file, even though I did unify some of them (footer styles are inside `page.scss`, card's ones are in `search-results.scss`). I defined variables, mixins and some classes that are used globally across the app in `global.scss`. All the SCSS files are imported into `base.scss`. Also, I installed Material UI for the search text input and select box, and used Material Icons for pagination arrows, delete and close buttons.
 
 ## 🎶 GIT
 
@@ -62,7 +62,8 @@ Given my limited time and having to balance this task with a full-time job, ther
 - Favourites: Save results to local storage.
 - Style: Override focus styles on input and select elements, add a glowing animation on the Add to ❤️ button, and add a customized scrollbar.
 - Structure: Move the fetch function from search container into the reducers file.
-- Redux: separate global reducer into search (controls search query), results (array of results), pagination and favourites.
+- Redux: separate global reducer into search (controls search query), results (array of results), pagination and favourites. Use Redux Toolkit `useAppDispatch` and `useAppSelector` instead the plane Redux `useDispatch` and `useSelector`.
+- Performance: Refactor the code in Search Container to remove the double loop where I iterate through favourites for each new search result. While it may not noticeably impact loading times with small data sets (the user only loads 7 results and I doubt they will have millions of favourite items), it's good practice to avoid unnecessary looping and improve scalability. Talking in terms of Big O notation, by reducing the time complexity from O(n²) to O(n), we can ensure better performance with larger data sets.
 
 ### Challenges and accomplishments
 
