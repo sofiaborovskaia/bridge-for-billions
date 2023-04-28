@@ -47,7 +47,7 @@ I used SCSS to organize my style sheets. Roughly every component has its own SCS
 
 ## 🎶 GIT
 
-I tried to imitate the regular Git flow by working with main and feature branches. I created a branch named "master", and every time I tackled a new step of creating my app, I tried to create a new branch for each major task (rendering the list of results, creating favorites list, setting up pagination, etc.). Once I considered the task finished, I would merge the working branch into master. I did, however, work on minor changes (restyling, changing texts, uploading favicon, updating readme, etc.) directly on `master` branch, which is not something I would do if there were other people working on this task.
+I tried to imitate the regular Git flow by working with main and feature branches. I created a branch named "master", and every time I tackled a new step of creating my app, I tried to create a new branch for each major task (rendering the list of results, creating favorites list, setting up pagination, etc.). Once I considered the task finished, I would merge the working branch into `master`. I did, however, work on minor changes (restyling, changing texts, uploading favicon, updating readme, etc.) directly on `master`, which is not something I would do if there were other people working on this task.
 
 ## 🎶 Overview
 
