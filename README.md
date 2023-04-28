@@ -17,7 +17,7 @@ This readme describes the app's features and provides an overview of the develop
 
 ### Search results
 
-The app takes a query and category (artist, track, album, or all) and returns results that include the query string. When the input or select is modified, the api call is made and in case of a successful response, the results array is set into the `results` state anf each individual result gets added `isClicked` (always set to `false`) and `isFavourite` (set to `false` unless found in the list of favorites) key-value pairs.
+The app takes a query and a category (artist, track, album, or all) and returns results that include the query string. When the input or select is modified, the api call is made and in case of a successful response, the results array is set into the `results` state and each individual result gets added `isClicked` (always set to `false`) and `isFavourite` (set to `false` unless found in the list of favorites) key-value pairs.
 
 Results include a thumbnail picture (or, if there's none, the first letter of the result's title with a primary color background), a title, the type of the result (artist, master, release), and two buttons: Add to favourites and More info.
 
