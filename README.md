@@ -23,7 +23,7 @@ Results include a thumbnail picture (or, if there's none, the first letter of th
 
 When the item is added to favorites, the result's `isFavourite` state changes (and the state of the favourites list), and the "Add to favorites" button changes its style and text to "In favorites."
 
-When more info is clicked, it triggers a change in the result's `isClicked` state, which controls whether the result's card with additional information is opened or not. Given more time, I would have liked to make an additional API call to fetch more details about the result (see Overview). Rigt now it renders a bigger picture related to the result item, its title, type, and year and available formats (only for releses).
+When more info is clicked, it triggers a change in the result's `isClicked` state, which controls whether the result's card with additional information is opened or not. Given more time, I would have liked to make an additional API call to fetch more details about the result (see Overview). Right now it renders a bigger picture related to the result item, its title, type, year and available formats (last two only for releases).
 
 ### Favourites
 
@@ -31,15 +31,15 @@ The app renders a list of favorite items, which is controlled by the array of fa
 
 ### Pagination
 
-There is a simple pagination system with previous/next page functionality and a display of the current page and the total number of pages. If there are more than 99 results, the total pages number prints as 99+. The text is controlled by the object called `pagination` inside the results state, which has two key-value pairs: `page` (current page) and `pages` (total number of pages).
+There is a simple pagination system with previous/next page functionality and a display of the current page and the total number of pages. If there are more than 99 results, the total page number prints as 99+. The text is controlled by the object called `pagination` inside the results state, which has two key-value pairs: `page` (current page) and `pages` (total number of pages).
 
 ## 🎶 Structure
 
-I organized the codebase into two main folders: "components", "styles" and "app". The "components" folder contains all of the React components used in the app, while the "styles" folder contains the SCSS files used to style the app. "app" folder contains TypeScript and Redux files.
+I organized the codebase into three main folders: "components", "styles" and "app". The "components" folder contains all of the React components used in the app, while the "styles" folder contains the SCSS files used to style the app. "app" folder contains TypeScript and Redux files.
 
 To ensure type safety, I used TypeScript for this project. Since the app is relatively small, I defined all the necessary types in a single file called `interface.ts`. However, for larger projects, it's usually best to create separate interface files for each feature or module.
 
-For state management, I chose to use Redux Toolkit's `createSlice` function to define all of the reducers in a single file called `globalSlice.ts`. In a larger app, it would be more scalable to split the reducers into separate slice files based on their respective features, but as our app has limited features, I found it easier to work with a single sourse of state.
+For state management, I chose to use Redux Toolkit's `createSlice` function to define all of the reducers in a single file called `globalSlice.ts`. In a larger app, it would be more scalable to split the reducers into separate slice files based on their respective features, but as our app has limited features, I found it easier to work with a single source of state.
 
 ## 🎶 Styles
 
@@ -47,7 +47,7 @@ I used SCSS to organize my style sheets. Roughly every component has its own scs
 
 ## 🎶 GIT
 
-I tried to imitate the regular Git flow by working with main and feature branches. I created a branch called "master", and every time I tackled a new step of creating my app, I tried to create a new branch for each major task (rendering the list of results, creating favorites list, setting up pagination, etc.). Once I considered the task finished, I would merge the working branch into master. I did, however, work on minor changes (restyling, changing texts, uploading favicon, updating readme, etc.) directly on `master` branch, which is not something I would do if there were other people working on this task.
+I tried to imitate the regular Git flow by working with main and feature branches. I created a branch named "master", and every time I tackled a new step of creating my app, I tried to create a new branch for each major task (rendering the list of results, creating favorites list, setting up pagination, etc.). Once I considered the task finished, I would merge the working branch into master. I did, however, work on minor changes (restyling, changing texts, uploading favicon, updating readme, etc.) directly on `master` branch, which is not something I would do if there were other people working on this task.
 
 ## 🎶 Overview
 
