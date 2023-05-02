@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { updateOpenModal } from "../app/modalSlice";
+import { updateOpenModal } from "../app/slices/modalSlice";
 
 const HeroHeading = () => {
 	const dispatch = useDispatch();

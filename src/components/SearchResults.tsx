@@ -1,7 +1,7 @@
 import { ResultsProps, ResultProps } from "../app/interfaces";
 import { useAppSelector, useAppDispatch } from "../app/hooks";
-import { updateResults } from "../app/resultsSlice";
-import { updateFavourites } from "../app/favouritesSlice";
+import { updateResults } from "../app/slices/resultsSlice";
+import { updateFavourites } from "../app/slices/favouritesSlice";
 import ItemCard from "./ItemCard";
 import Pagination from "./Pagination";
 

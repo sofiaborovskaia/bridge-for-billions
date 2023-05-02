@@ -1,9 +1,9 @@
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useAppSelector, useAppDispatch } from "../app/hooks";
-import { updateFavourites } from "../app/favouritesSlice";
-import { updateResults } from "../app/resultsSlice";
-import { updateOpenModal } from "../app/modalSlice";
+import { updateFavourites } from "../app/slices/favouritesSlice";
+import { updateResults } from "../app/slices/resultsSlice";
+import { updateOpenModal } from "../app/slices/modalSlice";
 import { ResultProps, FavouriteProps } from "../app/interfaces";
 
 const Favourites = () => {

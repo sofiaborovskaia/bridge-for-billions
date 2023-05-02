@@ -1,7 +1,7 @@
 import { useAppSelector, useAppDispatch } from "../app/hooks";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import { nextPage, prevPage } from "../app/paginationSlice";
+import { nextPage, prevPage } from "../app/slices/paginationSlice";
 
 const Pagination = () => {
 	const dispatch = useAppDispatch();

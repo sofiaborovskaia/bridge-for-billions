@@ -1,9 +1,9 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import searchReducer from "./searchSlice";
-import resultsReducer from "./resultsSlice";
-import favouritesReducer from "./favouritesSlice";
-import modalReducer from "./modalSlice";
-import paginationReducer from "./paginationSlice";
+import searchReducer from "./slices/searchSlice";
+import resultsReducer from "./slices/resultsSlice";
+import favouritesReducer from "./slices/favouritesSlice";
+import modalReducer from "./slices/modalSlice";
+import paginationReducer from "./slices/paginationSlice";
 
 export const store = configureStore({
 	reducer: {

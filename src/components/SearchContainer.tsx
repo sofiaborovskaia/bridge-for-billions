@@ -1,8 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
-import { useAppSelector, useAppDispatch } from "../app/hooks";
-import { updateResults } from "../app/resultsSlice";
-import { updatePagination } from "../app/paginationSlice";
 import { ResultProps, FavouriteProps } from "../app/interfaces";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
+import { updateResults } from "../app/slices/resultsSlice";
+import { updatePagination } from "../app/slices/paginationSlice";
 
 import SearchResults from "./SearchResults";
 import SearchHeader from "./SearchHeader";
