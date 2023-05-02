@@ -4,10 +4,10 @@ import { RootState } from "../store";
 // Reducers
 export const modalReducer = createSlice({
 	name: "modal",
-	initialState: false,
+	initialState: { isOpen: false },
 	reducers: {
 		updateOpenModal: (state, action) => {
-			state = action.payload;
+			state.isOpen = action.payload;
 		},
 	},
 });

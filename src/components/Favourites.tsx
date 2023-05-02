@@ -27,7 +27,7 @@ const Favourites = () => {
 	};
 
 	return (
-		<div className={state.modal ? "favourites" : "hidden"}>
+		<div className={state.modal.isOpen ? "favourites" : "hidden"}>
 			<div className="favourites__container">
 				<button className="favourites__close-button" onClick={handleCloseModal}>
 					<CloseRoundedIcon />
