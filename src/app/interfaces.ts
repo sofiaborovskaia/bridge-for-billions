@@ -1,3 +1,4 @@
+// Props passed from parent components to child components
 export interface ResultProps {
 	id: number;
 	type: string;
@@ -10,6 +11,11 @@ export interface ResultProps {
 	isFavourite: boolean;
 }
 
+export interface ResultsProps {
+	results: ResultProps[];
+	error: boolean;
+}
+
 export interface ItemCardProps {
 	title: string;
 	type: string;
@@ -18,23 +24,7 @@ export interface ItemCardProps {
 	format: string;
 }
 
-export interface ResultsProps {
-	results: ResultProps[];
-	error: boolean;
-}
-
-// export interface FavouriteInterface {
-// 	id: number;
-// 	title: string;
-// }
-
-export interface SearchState {
-	query: string;
-	artist: boolean;
-	album: boolean;
-	track: boolean;
-	pagination: { page: 1; pages: 1 };
-	results: [];
-	favourites: { id: number; title: string }[];
-	openModal: boolean;
+export interface FavouriteProps {
+	title: string;
+	id: number;
 }

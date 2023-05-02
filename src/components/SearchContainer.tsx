@@ -1,11 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import {
-	selectSearchState,
-	updateResults,
-	updatePagination,
-} from "../app/globalSlice";
-import { ResultProps } from "../app/interfaces";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
+import { updateResults } from "../app/resultsSlice";
+import { updatePagination } from "../app/paginationSlice";
+import { ResultProps, FavouriteProps } from "../app/interfaces";
 
 import SearchResults from "./SearchResults";
 import SearchHeader from "./SearchHeader";
@@ -14,16 +11,16 @@ const token = "BKqXciLJNXcEzgKNRZXmnQxdIDFjqqTRxYiUQOyZ";
 const url = "https://api.discogs.com/database/search?";
 
 const SearchContainer = () => {
-	const dispatch = useDispatch();
-	const searchState = useSelector(selectSearchState);
+	const dispatch = useAppDispatch();
+	const state = useAppSelector((state) => state);
 
 	const [error, setError] = useState(false);
 
-	const query = searchState.query;
-	const artist = searchState.artist;
-	const album = searchState.album;
-	const track = searchState.track;
-	const page = searchState.pagination.page;
+	const query = state.search.query;
+	const artist = state.search.artist;
+	const album = state.search.album;
+	const track = state.search.track;
+	const page = state.pagination.page;
 
 	let artistString = `&artist=${query}`;
 	let albumString = `&format=album&title=${query}`;
@@ -51,10 +48,12 @@ const SearchContainer = () => {
 				const response = await request.json();
 
 				const newResults = response.results.map((result: ResultProps) => {
-					const favourites = searchState.favourites;
+					const favourites = state.favourites;
 					const isFavourite =
 						favourites.length > 0 &&
-						favourites.some((favourite) => favourite.id === result.id);
+						favourites.some(
+							(favourite: FavouriteProps) => favourite.id === result.id,
+						);
 
 					return { ...result, isClicked: false, isFavourite: isFavourite };
 				});
@@ -67,7 +66,7 @@ const SearchContainer = () => {
 				dispatch(updatePagination(newPagination));
 			}
 		})();
-	}, [queryString, dispatch, searchState.favourites]);
+	}, [queryString, dispatch, state.favourites]);
 
 	useEffect(() => {
 		fetchResults();
@@ -76,7 +75,7 @@ const SearchContainer = () => {
 	return (
 		<div className="search-container">
 			<SearchHeader />
-			<SearchResults results={searchState.results} error={error} />
+			<SearchResults results={state.results} error={error} />
 		</div>
 	);
 };

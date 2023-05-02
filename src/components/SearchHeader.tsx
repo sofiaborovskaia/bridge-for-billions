@@ -6,7 +6,7 @@ import {
 	updateArtist,
 	updateTrack,
 	updateAlbum,
-} from "../app/globalSlice";
+} from "../app/searchSlice";
 import {
 	TextField,
 	FormControl,

@@ -1,19 +1,16 @@
-import { useSelector, useDispatch } from "react-redux";
 import { ResultsProps, ResultProps } from "../app/interfaces";
-import {
-	updateResults,
-	updateFavourites,
-	selectSearchState,
-} from "../app/globalSlice";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
+import { updateResults } from "../app/resultsSlice";
+import { updateFavourites } from "../app/favouritesSlice";
 import ItemCard from "./ItemCard";
 import Pagination from "./Pagination";
 
 const SearchResults: React.FC<ResultsProps> = ({ results, error }) => {
-	const dispatch = useDispatch();
-	const searchState = useSelector(selectSearchState);
+	const dispatch = useAppDispatch();
+	const state = useAppSelector((state) => state);
 
 	const handleShowInfo = (id: number) => {
-		const updatedResults = searchState.results.map((result: ResultProps) => {
+		const updatedResults = state.results.map((result: ResultProps) => {
 			return result.id === id
 				? { ...result, isClicked: result.isClicked ? false : true }
 				: { ...result, isClicked: false };
@@ -22,11 +19,8 @@ const SearchResults: React.FC<ResultsProps> = ({ results, error }) => {
 	};
 
 	const handleAddToFavourites = (id: number, title: string) => {
-		const updatedFavourites = [
-			...searchState.favourites,
-			{ id: id, title: title },
-		];
-		const updatedResults = searchState.results.map((result: ResultProps) => {
+		const updatedFavourites = [...state.favourites, { id: id, title: title }];
+		const updatedResults = state.results.map((result: ResultProps) => {
 			return result.id === id ? { ...result, isFavourite: true } : result;
 		});
 

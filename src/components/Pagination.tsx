@@ -1,15 +1,14 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-
-import { nextPage, prevPage, selectSearchState } from "../app/globalSlice";
+import { nextPage, prevPage } from "../app/paginationSlice";
 
 const Pagination = () => {
-	const dispatch = useDispatch();
-	const searchState = useSelector(selectSearchState);
+	const dispatch = useAppDispatch();
+	const state = useAppSelector((state) => state);
 
-	let currentPage = searchState.pagination.page;
-	let totalPages = searchState.pagination.pages;
+	let currentPage = state.pagination.page;
+	let totalPages = state.pagination.pages;
 
 	const handlePrevPage = () => {
 		dispatch(prevPage());

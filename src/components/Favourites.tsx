@@ -1,27 +1,24 @@
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useSelector, useDispatch } from "react-redux";
-import {
-	selectSearchState,
-	updateFavourites,
-	updateResults,
-	updateOpenModal,
-} from "../app/globalSlice";
-import { ResultProps } from "../app/interfaces";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
+import { updateFavourites } from "../app/favouritesSlice";
+import { updateResults } from "../app/resultsSlice";
+import { updateOpenModal } from "../app/modalSlice";
+import { ResultProps, FavouriteProps } from "../app/interfaces";
 
 const Favourites = () => {
-	const dispatch = useDispatch();
-	const searchState = useSelector(selectSearchState);
+	const dispatch = useAppDispatch();
+	const state = useAppSelector((state) => state);
 
 	const handleCloseModal = () => {
 		dispatch(updateOpenModal(false));
 	};
 
 	const handleRemoveFromFavourites = (id: number) => {
-		const updatedFavourites = searchState.favourites.filter(
-			(favourite) => favourite.id !== id,
+		const updatedFavourites = state.favourites.filter(
+			(favourite: FavouriteProps) => favourite.id !== id,
 		);
-		const updatedResults = searchState.results.map((result: ResultProps) => {
+		const updatedResults = state.results.map((result: ResultProps) => {
 			return result.id === id ? { ...result, isFavourite: false } : result;
 		});
 
@@ -30,15 +27,15 @@ const Favourites = () => {
 	};
 
 	return (
-		<div className={searchState.openModal ? "favourites" : "hidden"}>
+		<div className={state.modal ? "favourites" : "hidden"}>
 			<div className="favourites__container">
 				<button className="favourites__close-button" onClick={handleCloseModal}>
 					<CloseRoundedIcon />
 				</button>
 				<div className="favourites__title">Your collection</div>
-				{searchState.favourites.length > 0 ? (
+				{state.favourites.length > 0 ? (
 					<ol className="favourites__list">
-						{searchState.favourites.map((favourite) => {
+						{state.favourites.map((favourite: FavouriteProps) => {
 							return (
 								<li key={favourite.id} className="favourites__list-item">
 									<span className="favourite-text">{favourite.title}</span>
