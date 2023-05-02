@@ -4,10 +4,10 @@ import { RootState } from "../store";
 // Reducers
 export const resultsReducer = createSlice({
 	name: "results",
-	initialState: [],
+	initialState: { items: [] },
 	reducers: {
 		updateResults: (state, action) => {
-			state = action.payload;
+			state.items = action.payload;
 		},
 	},
 });

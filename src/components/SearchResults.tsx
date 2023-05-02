@@ -10,7 +10,7 @@ const SearchResults: React.FC<ResultsProps> = ({ results, error }) => {
 	const state = useAppSelector((state) => state);
 
 	const handleShowInfo = (id: number) => {
-		const updatedResults = state.results.map((result: ResultProps) => {
+		const updatedResults = state.results.items.map((result: ResultProps) => {
 			return result.id === id
 				? { ...result, isClicked: result.isClicked ? false : true }
 				: { ...result, isClicked: false };
@@ -20,7 +20,7 @@ const SearchResults: React.FC<ResultsProps> = ({ results, error }) => {
 
 	const handleAddToFavourites = (id: number, title: string) => {
 		const updatedFavourites = [...state.favourites, { id: id, title: title }];
-		const updatedResults = state.results.map((result: ResultProps) => {
+		const updatedResults = state.results.items.map((result: ResultProps) => {
 			return result.id === id ? { ...result, isFavourite: true } : result;
 		});
 

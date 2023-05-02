@@ -75,7 +75,7 @@ const SearchContainer = () => {
 	return (
 		<div className="search-container">
 			<SearchHeader />
-			<SearchResults results={state.results} error={error} />
+			<SearchResults results={state.results.items} error={error} />
 		</div>
 	);
 };

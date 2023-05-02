@@ -18,7 +18,7 @@ const Favourites = () => {
 		const updatedFavourites = state.favourites.filter(
 			(favourite: FavouriteProps) => favourite.id !== id,
 		);
-		const updatedResults = state.results.map((result: ResultProps) => {
+		const updatedResults = state.results.items.map((result: ResultProps) => {
 			return result.id === id ? { ...result, isFavourite: false } : result;
 		});
 
