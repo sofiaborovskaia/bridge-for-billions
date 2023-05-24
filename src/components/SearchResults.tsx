@@ -29,7 +29,7 @@ const SearchResults: React.FC<ResultsProps> = ({ results, error }) => {
 
 		dispatch(updateFavourites(updatedFavourites));
 		dispatch(updateResults(updatedResults));
-		// localStorage.setItem("favourites", JSON.stringify(updatedFavourites));
+		localStorage.setItem("favourites", JSON.stringify(updatedFavourites));
 	};
 
 	const SearchResults = results.map((result) => {
