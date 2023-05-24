@@ -50,8 +50,8 @@ const SearchContainer = () => {
 				const newResults = response.results.map((result: ResultProps) => {
 					const favourites = state.favourites;
 					const isFavourite =
-						favourites.length > 0 &&
-						favourites.some(
+						favourites.items.length > 0 &&
+						favourites.items.some(
 							(favourite: FavouriteProps) => favourite.id === result.id,
 						);
 

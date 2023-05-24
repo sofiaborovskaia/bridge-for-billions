@@ -4,10 +4,10 @@ import { RootState } from "../store";
 // Reducers
 export const favouritesReducer = createSlice({
 	name: "favourites",
-	initialState: [],
+	initialState: { items: [] },
 	reducers: {
 		updateFavourites: (state, action) => {
-			return action.payload;
+			state.items = action.payload;
 		},
 	},
 });

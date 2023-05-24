@@ -22,7 +22,7 @@ const Favourites = () => {
 	};
 
 	const handleRemoveFromFavourites = (id: number) => {
-		const updatedFavourites = state.favourites.filter(
+		const updatedFavourites = state.favourites.items.filter(
 			(favourite: FavouriteProps) => favourite.id !== id,
 		);
 		const updatedResults = state.results.items.map((result: ResultProps) => {
@@ -40,9 +40,9 @@ const Favourites = () => {
 					<CloseRoundedIcon />
 				</button>
 				<div className="favourites__title">Your collection</div>
-				{state.favourites.length > 0 ? (
+				{state.favourites.items.length > 0 ? (
 					<ol className="favourites__list">
-						{state.favourites.map((favourite: FavouriteProps) => {
+						{state.favourites.items.map((favourite: FavouriteProps) => {
 							return (
 								<li key={favourite.id} className="favourites__list-item">
 									<span className="favourite-text">{favourite.title}</span>
