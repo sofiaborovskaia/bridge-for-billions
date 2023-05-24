@@ -19,6 +19,7 @@ const SearchResults: React.FC<ResultsProps> = ({ results, error }) => {
 	};
 
 	const handleAddToFavourites = (id: number, title: string) => {
+		debugger;
 		const updatedFavourites = [...state.favourites, { id: id, title: title }];
 		const updatedResults = state.results.items.map((result: ResultProps) => {
 			return result.id === id ? { ...result, isFavourite: true } : result;
@@ -26,6 +27,7 @@ const SearchResults: React.FC<ResultsProps> = ({ results, error }) => {
 
 		dispatch(updateFavourites(updatedFavourites));
 		dispatch(updateResults(updatedResults));
+		//localStorage.setItem("favourites", JSON.stringify(updatedFavourites));
 	};
 
 	const SearchResults = results.map((result) => {

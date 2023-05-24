@@ -6,6 +6,13 @@ import { updateResults } from "../app/slices/resultsSlice";
 import { updateOpenModal } from "../app/slices/modalSlice";
 import { ResultProps, FavouriteProps } from "../app/interfaces";
 
+// On add to favs list click
+// save the title and the id into local storage
+
+// When page is loading
+// if favourites saved in local storage
+// push them into the favourites state
+
 const Favourites = () => {
 	const dispatch = useAppDispatch();
 	const state = useAppSelector((state) => state);

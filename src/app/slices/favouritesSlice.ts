@@ -7,7 +7,7 @@ export const favouritesReducer = createSlice({
 	initialState: [],
 	reducers: {
 		updateFavourites: (state, action) => {
-			state = action.payload;
+			return action.payload;
 		},
 	},
 });
